@@ -19,36 +19,11 @@
 
     
     <style>
-        
         body {
             font-family: 'Hind Madurai', sans-serif;
             font-size: 16px;
         };
         
-                               
-        .btn-file {
-            position: relative;
-            overflow: hidden;
-            background-color: black;
-        }
-
-       .btn-file input[type=file] {
-            position: absolute;
-            top: 0;
-            right: 0;
-            min-width: 100%;
-            min-height: 100%;
-            font-size: 100%;
-            text-align: right;
-            filter: alpha(opacity=0);
-            opacity: 0;
-            outline: none;
-            background: transparent;
-            cursor: inherit;
-            display: block;
-         
-
-        } 
 
 
     </style>
@@ -94,24 +69,19 @@
 
         <br>
 
-        <div padding class="form-group" style=" margin: 0 auto; padding:1em; max-width: 800px; text-align: center;">
+        <div padding class="form-group" style="margin: 0 auto; padding:1em; max-width: 800px; text-align: center;">
  
             <!-- sector de input -->
             <div class="row">
                 <div class="col-md-12">
                     <div class="input-group" id="adv-search">
-                        <input type="text" value="" id="input-csv" class="form-control" value='Change Text' placeholder="Search code" style="max-width:770px;"/>
-                            
-                        <!--boton upload file-->
-                            <div class="input-group-btn">  
-                                 <label class="btn btn-primary">
-                                    CSV&nbsp;
-                                    <i class="fas fa-upload"></i>
-                                    <input type="file" id="file-input" style="display: none;">
-                                </label>                                                                
-                            </div>
-                       <!--FIN boton upload file-->
-                        
+                        <input type="text" value="" id="input-csv" class="form-control" value='Change Text' placeholder="Search code" />
+                            <div class="input-group-btn">
+                                <span  class="btn btn-primary" type="file" >
+                                    <i class="fas fa-upload"></i>&nbsp;CSV
+
+                                </span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -129,11 +99,12 @@
             </p>
             <br>
 
-            <!-- sector multiple select-->      
+            <!-- sector multiple select-->
+            <div class="form-group" style="margin: 0 auto; max-width: 770px; ">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="input-group" id="adv-search">
-                            <select class="selectpicker" multiple title="Capture Kit" multiple data-actions-box="true" data-selected-text-format="count > 3" style=" text-align: center; margin: 0 auto;" data-width="55%" data-style="btn-primary" multiple data-max-options="8">
+                            <select class="selectpicker" multiple title="Capture Kit ... (Empty)" multiple data-actions-box="true" data-selected-text-format="count > 3" style="text-align: center; margin: 0 auto;" data-width="70%" data-style="btn-primary" multiple data-max-options="8">
                                 <option>
                                     <p>Trusight Exome</p>
                                 </option>
@@ -195,28 +166,22 @@
                                     <p>Trusight Cardiomyopathy</p>
                                 </option>
                             </select>
-                            
-                            
-                            <!-- boton input BED file -->
-                            <div class="input-group-btn">  
-                                 <label class="btn btn-info">
-                                    BED&nbsp;
-                                    <i class="fas fa-upload"></i>
-                                    <input type="file" style="display: none;">
-                                </label>                                                                
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-info">
+                                    <i class="fas fa-upload"></i>&nbsp;BED
+                                </button>
                             </div>
-                            
-                            
                         </div>
                     </div>
                 </div>
             </div>
 
 
+            <br>
 
             <!-- boton launch procesar -->
-            <div style="max-width: 700px; margin: 0 auto;">
-                <button type="button" style="padding: 0.3em; font-size: 1em; max-width: 200px; margin: 0 auto;" class="btn btn-success btn-lg btn-block">Launch</button>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <button type="button" style="padding: 0.3em; font-size: 1em; max-width: 300px; margin: 0 auto;" class="btn btn-success btn-lg btn-block">Launch</button>
             </div>
 
             <br>
@@ -247,9 +212,18 @@
         <h2>Texto:</h2> -->
     
 <!-- fin file reader url externo -->
+        <form>
+            <input type="text" id="contenido-archivo">
+        </form>
+        
+        
+    <input type="file" id="file-input" />
+    <h3 >Contenido del archivo:</h3>
+    
+       
 
         
-        <!-- codigo para mandar valor a un input ------------------------
+        <!--
         <script type="text/javascript">
             function changeText(){
         document.getElementById('boldStuff').innerHTML = 'Fred Flinstone';
@@ -257,9 +231,12 @@
         </script>
         
         <p>Welcome to Stack OverFlow <b id='boldStuff'>dude</b> </p> 
-        <input type='button' onclick='changeText()' value='Change Text'/>
-        ----------------------------------------------------------------->
-       
+        <input type='button' onclick='changeText()' value='Change Text'/>-->
+
+        
+        
+
+            
 </body>
 
 </html>
