@@ -26,8 +26,9 @@
             font-size: 16px;
         }
 
-        p{
-            font-size:.9em; text-align: justify;
+        p {
+            font-size: .9em;
+            text-align: justify;
         }
 
         ;
@@ -109,17 +110,32 @@
             </p>
             <br>
 
+            <!--armar el select de kitname, no se por que no me funciona desde el archivo js, lo tengo que poner aca-->
+            <script>
+
+                $.getJSON("kits.json", function (kitjson) {
+
+                    for (i = 0; i < kitjson.kits.length; i++) {
+
+                        var valorKitname = kitjson.kits[i].kitname
+                        var x = document.getElementById("selectKit");
+                        var option = document.createElement("option");
+                        option.text = valorKitname;
+                        x.add(option);
+
+                    }
+                });
+
+            </script>
+            
             <!-- sector multiple select-->
             <div class="row">
                 <div class="col-md-12">
                     <div class="input-group" id="adv-search">
-                        <select class="selectpicker" multiple title="Capture Kit" multiple data-actions-box="true" data-selected-text-format="count > 3"
+                        <select id="selectKit" class="selectpicker" multiple title="Capture Kit" multiple data-actions-box="true" data-selected-text-format="count > 3"
                             style=" text-align: center; margin: 0 auto;" data-width="55%" data-style="btn-primary" multiple data-max-options="8">
-                            
-                            <option>
-                                <p></p>
-                            </option>
-                            
+                            <!-- inserta dinamicamente option-->
+
                         </select>
 
                         <!-- boton input BED file -->
@@ -143,11 +159,11 @@
 
         <br>
         <hr>
-        
+
         <!-- sector about texto-->
         <div style="max-width: 800px; margin:0 auto; padding:1em;">
             <h4>About GeneCovAPP</h4>
-            <p >The Genecovapp is a web application aimed to be a strong and trustable tool for aiding throughout the process
+            <p>The Genecovapp is a web application aimed to be a strong and trustable tool for aiding throughout the process
                 of experimental design for Clinical NGS.GeneCovApp</p>
             <p>The data set provided on this website spans 60,706 unrelated individuals sequenced as part of various disease-specific
                 and population genetic studies. The ExAC Principal Investigators and groups that have contributed data to
@@ -157,7 +173,7 @@
             <p>Sign up for our mailing list for future release announcements here.</p>
         </div>
 
-    <!--Fin contenido general-->
+        <!--Fin contenido general-->
     </div>
 
 
