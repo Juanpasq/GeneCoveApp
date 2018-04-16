@@ -2,12 +2,12 @@
 <html>
 
 <head>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl"
-        crossorigin="anonymous"></script>
+   <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl"
+        crossorigin="anonymous"></script> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/js/bootstrap-select.min.js"></script>
- <!--   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script> -->
+   <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script> -->
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Didact+Gothic|Hind+Madurai|Tajawal" rel="stylesheet">
@@ -84,7 +84,7 @@
                         <span class="form-control-clear glyphicon glyphicon-remove form-control-feedback hidden"></span>
                         <!--boton upload file-->
                         <div class="input-group-btn">
-                            <label class="btn btn-primary">
+                            <label class="btn btn-primary" style="background-color: rgb(32, 32, 32)">
                                 CSV&nbsp;
                                 <i class="fas fa-upload"></i>
                                 <input type="file" id="file-input" accept=".csv" style="display: none;">
@@ -128,14 +128,14 @@
                 <div class="col-md-12">
                     <div class="input-group" id="adv-search">
                         <select id="selectKit" class="selectpicker" multiple title="Capture Kit" multiple data-actions-box="true" data-selected-text-format="count > 3"
-                            style=" text-align: center; margin: 0 auto;" data-width="55%" data-style="btn-primary" multiple data-max-options="8">
+                            style=" text-align: center; margin: 0 auto;" data-width="55%"  multiple data-max-options="8">
                             <!-- inserta dinamicamente option-->
 
                         </select>
 
                         <!-- boton input BED file -->
                         <div class="input-group-btn">
-                            <label class="btn btn-info">
+                            <label class="btn btn-info"  style="background-color: rgb(32, 32, 32)">
                                 BED&nbsp;
                                 <i class="fas fa-upload"></i>
                                 <input type="file" accept=".bed" style="display: none;">
@@ -152,7 +152,7 @@
         justify-content: center;">
             <div id="btnLaunch" style=" padding-right:5px;width: 200px; float: left; margin:0 auto;" class="btn btn-success  btn-block">Launch</div>
             <div disabled class="btn btn-secondary">&nbsp;</div>
-            <div id="btnClean" onclick="clean()" style=" width:200px; float: left ;color:gainsboro; margin: 0 auto; background-color: rgba(12, 10, 10, 0.87);"
+            <div id="btnClean" onclick="clean()" style=" width:200px; float: left ;color:gainsboro; margin: 0 auto; background-color: rgba(12, 10, 10, 0.61);"
                 class="btn btn-secondary btn-block">Clean</div>
         </div>
 
@@ -161,7 +161,8 @@
 
             function clean() {
                 document.getElementById("input-csv").value = "";
-                 location.reload();
+                location.reload();
+
             }
         </script>
 
