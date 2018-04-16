@@ -108,6 +108,28 @@
             <br>
 
             <!--armar el select de kitname, no se por que no me funciona desde el archivo js, lo tengo que poner aca-->
+            
+            
+            <!-- Al parecer los metodos cross origin request no permiten cargar archivos locales. Yo probe levantando la rest API y por alguna cuestion de permisos que no entiendo bien no le puedo pegar al json. 
+
+            CONSOLE: Failed to load file:///home/geronimodubra/BIA/git/vista/genesHTML/kits.json: Cross origin requests are only supported for protocol schemes: http, data, chrome, chrome-extension, https.
+
+            -->
+            
+
+            <!-- Para probar el script:
+
+            - ir al directorio genesHtml y levantar un server simple (con python por ej: python2 -m SimpleHTTPServer levanta en localhost:8000 el index.html y en localhost:8000/kits.json el archivo con los kits)
+                
+            - cambiar la primera linea a:
+
+                $.getJSON("localhost:8000/kits.json", function (kitjson) {
+
+            - por el navegador entrar a localhost:8000
+
+            - Y voila, el selector anda a la perfeccion
+
+             -->
             <script>
 
                 $.getJSON("kits.json", function (kitjson) {
