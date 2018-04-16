@@ -9,12 +9,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/js/bootstrap-select.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Didact+Gothic|Hind+Madurai|Tajawal" rel="stylesheet">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-
     <script type="application/javascript" src="jscript.js"></script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
         crossorigin="anonymous"></script>
@@ -30,8 +28,6 @@
             font-size: .9em;
             text-align: justify;
         }
-
-        ;
     </style>
 
 </head>
@@ -84,9 +80,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="input-group" id="adv-search">
-                        <input type="text" value="" id="input-csv" class="form-control" value='Change Text' placeholder="Search code" style="max-width:770px;"
-                        />
-
+                        <input type="text" id="input-csv" class="form-control" placeholder="Search code" style="max-width:770px;" />
+                        <span class="form-control-clear glyphicon glyphicon-remove form-control-feedback hidden"></span>
                         <!--boton upload file-->
                         <div class="input-group-btn">
                             <label class="btn btn-primary">
@@ -127,7 +122,7 @@
                 });
 
             </script>
-            
+
             <!-- sector multiple select-->
             <div class="row">
                 <div class="col-md-12">
@@ -153,12 +148,24 @@
         </div>
 
         <!-- boton launch procesar -->
-        <div style="max-width: 700px; margin: 0 auto;">
-            <button type="button" style="padding: 0.3em; font-size: 1em; max-width: 200px; margin: 0 auto;" class="btn btn-success btn-lg btn-block">Launch</button>
+        <div padding class="row " style="margin: 0 auto;padding:1em; max-width:420px; text-align: justify;display: flex;
+        justify-content: center;">
+            <div id="btnLaunch" style=" padding-right:5px;width: 200px; float: left; margin:0 auto;" class="btn btn-success  btn-block">Launch</div>
+            <div disabled class="btn btn-secondary">&nbsp;</div>
+            <div id="btnClean" onclick="clean()" style=" width:200px; float: left ;color:gainsboro; margin: 0 auto; background-color: rgba(12, 10, 10, 0.87);"
+                class="btn btn-secondary btn-block">Clean</div>
         </div>
 
-        <br>
-        <hr>
+        <!--funcion btn cancelar -->
+        <script>
+
+            function clean() {
+                document.getElementById("input-csv").value = "";
+
+            }
+        </script>
+
+        <hr style="max-width: 770px;">
 
         <!-- sector about texto-->
         <div style="max-width: 800px; margin:0 auto; padding:1em;">
@@ -175,7 +182,6 @@
 
         <!--Fin contenido general-->
     </div>
-
 
     <!-- file reader url externo template html que va con el script del js-->
     <!--<script  src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>

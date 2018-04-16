@@ -5,9 +5,6 @@ $(document).ready(function () {
 
     ////// funcion para leer un archivo via remoto http ////////
 
-    //function probarBtn (){  
-    //   alert("Boton clickeado");
-    // };
 
     $(function () {
         $("#button").click(function () {
@@ -55,6 +52,8 @@ $(document).ready(function () {
 
     document.getElementById('file-input')
         .addEventListener('change', leerArchivo, false);
+
+    ////////////////////////////////////////////////////
 
 
 }); ////cierre documentReady////////  
