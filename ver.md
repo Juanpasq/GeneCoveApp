@@ -1,4 +1,4 @@
 # genesHTML
 HTML (no Ionic)
 
-PROBAR EN CHROME, EN MOZILLA ME FUNCIONA BIEN EL SELECT DINAMICO, Y EN CHROME NO ME FUNCIONA EL SELECT DINAMICO, POR LO VISTO PUEDE SER ALGO CON LA CARGA DEL SCRIPT EN CHROME.
+* Por lo visto el problema de que no me mostraba las opt del select dinamico en Chrome es por que abro el archivo directo de la carpeta en modo "File", si bien Mozilla lo lee bien, Chrome no, pero cuando lo pruebo directamente bajo la url de un servidor web ejemplo https://127.0.0.0.0:8100/index.html Chrome lo visualiza perfecto.
