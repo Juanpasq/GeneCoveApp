@@ -1,4 +1,4 @@
 # genesHTML
 HTML (no Ionic)
 
-* Por lo visto el problema de que no me mostraba las opt del select dinamico en Chrome es por que abro el archivo directo de la carpeta en modo "File", si bien Mozilla lo lee bien, Chrome no, pero cuando lo pruebo directamente bajo la url de un servidor web ejemplo https://127.0.0.0.0:8100/index.html Chrome lo visualiza perfecto.
+* nota del 29 Abril : esta puesto un ejemplo fake de una base de datos json para poder trabajar y probar la funcionabilidad de obtener valores desde una base remota api (https://jsonplaceholder.typicode.com/users) , por lo cual despues hay que probar y cambiar esa conexion + valores y colocar los de la db json de genesCover de German. Todo esto esta para probar desde el boton LAUNCH por el momento (valores tirados por consola.)
