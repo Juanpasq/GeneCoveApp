@@ -211,8 +211,9 @@
                     var kitId = array[i];    
                     console.log(kitId);
 
-                    var inputCsv = document.getElementById('input-csv').value;
-                    console.log("http://www.mercadolibre.com.ar/"+kitId+"/"+inputCsv+"");
+                    var csvValues = document.getElementById('input-csv').value;
+                    csvValues = csvValues.split(",");
+                    console.log("http://10.200.0.66/"+kitId+"/"+csvValues+"");
                 } 
 
             }
