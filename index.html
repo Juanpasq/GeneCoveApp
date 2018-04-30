@@ -99,11 +99,11 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="input-group" id="adv-search">
-                        <input type="text" id="input-csv" class="form-control" placeholder="Search code" style="max-width:770px;" />
+                        <input type="text" id="input-csv" class="form-control" placeholder="Search code" onkeyup="this.value = this.value.toUpperCase();" style="max-width:770px;" />
                         <span class="form-control-clear glyphicon glyphicon-remove form-control-feedback hidden"></span>
                         <!--boton upload file-->
                         <div class="input-group-btn">
-                            <label class="btn" id="btn-csv" style="background-color: rgb(32, 32, 32); color: aliceblue;">
+                            <label class="btn" id="btn-csv" style="background-color: rgb(32, 32, 32); color: aliceblue;" >
                                 CSV&nbsp;
                                 <i class="fas fa-upload"></i>
                                 <input type="file" id="file-input" accept=".csv" style="display: none;">
@@ -148,19 +148,13 @@
 
              -->
 
-            <script>
-                
-           
-            
-            </script>
-
             <!-- sector multiple select-->
             <div class="row" id="adv-search">
                 <div class="col-md-12">
                     <div class="input-group" id="btn-render">
                         <select id="selectKit" class="selectpicker" multiple title="Capture Kit" name="selectKit" data-actions-box="true" data-selected-text-format="count > 3" style=" text-align: center; margin: 0 auto;" data-width="55%" multiple data-max-options="20">
                             <!-- inserta dinamicamente option-->
-                       <option value="1255">JUAN</option>
+                       
                         </select>
 
                         <!-- boton input BED file -->
@@ -210,13 +204,15 @@
             $('#resultadoTexto').text(selectText); */
         }); 
         
-       ////armardo de la url con el id kit seleccionado////// 
+       ////armardo de la url con el id kit seleccionado y los valores genes////// 
             function urlKit (){
                             
                 for(i=0; i < array.length ; i++){
                     var kitId = array[i];    
                     console.log(kitId);
-                    console.log("http://www.mercadolibre.com.ar/"+kitId+"/productos");
+
+                    var inputCsv = document.getElementById('input-csv').value;
+                    console.log("http://www.mercadolibre.com.ar/"+kitId+"/"+inputCsv+"");
                 } 
 
             }
