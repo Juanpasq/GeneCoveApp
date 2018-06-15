@@ -1,19 +1,23 @@
 $(document).ready(function () {
     
     
+    var ipSever = "10.200.1.141";
+    
     ////////traer el json de kitnames/////////// 
-        
-        $.getJSON("https://jsonplaceholder.typicode.com/users", function(kitjson) {
+        var ipServer = "10.100.100.55:8081";
+        $.getJSON("http://"+ipServer+"/genecovapp/getAllKit", function(kitjson) {
 
                     for (i = 0; i < kitjson.length; i++) {
 
-                        var valorKitname = kitjson[i].name
+                        var valorKitname = kitjson[i].id;
+                        var kitname = kitjson[i].kitname;
                         var x = document.getElementById("selectKit");
                         var option = document.createElement("option");
-                        option.text = valorKitname;
-                        option.value = i+1;
+                        option.text = kitname;
+                        //obtenemos el valor de la option para poderlo meter en el array de preseleccion///
+                        option.value = valorKitname;
                         x.appendChild(option);
-                        console.log("ID - " + option.value + " >  Nombre - " + valorKitname);
+                        console.log("ID - " + valorKitname + " >  Kitname - " + kitname);
                        
 
                     }
@@ -72,6 +76,9 @@ $(document).ready(function () {
         });
     });*/
 
+    
+    
+    
 
     //// Leer un archivo TXT Local /////////
 
