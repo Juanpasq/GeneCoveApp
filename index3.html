@@ -3,23 +3,19 @@
 
 <head>
 
-    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl"
-        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
 
     <!-- JQuery 3.1 -->
     <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <script type="text/javascript" src="jscript.js"></script>
 
@@ -129,12 +125,13 @@
             -o-transition: all ease-out 0.2s 0.1s;
             -ms-transition: all ease-out 0.2s 0.1s;
         }
+
     </style>
 
 </head>
 
 <body>
-    
+
     <!-- NavBar -->
     <nav class="navbar navbar-inverse" style="border-radius:0px;">
         <!-- Arreglo temporal: No se si corresponde modificar el el border radius del navbar desde aca o el estilo  -->
@@ -186,8 +183,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="input-group" id="adv-search">
-                        <input type="text" id="input-csv" class="form-control" placeholder="Search code" onkeyup="this.value = this.value.toUpperCase();"
-                            style="max-width:770px;" />
+                        <input type="text" id="input-csv" class="form-control" placeholder="Search code" onkeyup="this.value = this.value.toUpperCase();" style="max-width:770px;" />
                         <span class="form-control-clear glyphicon glyphicon-remove form-control-feedback hidden"></span>
                         <!--boton upload file-->
                         <div class="input-group-btn">
@@ -240,8 +236,7 @@
             <div class="row" id="adv-search">
                 <div class="col-md-12">
                     <div class="input-group" id="btn-render">
-                        <select id="selectKit" class="selectpicker" multiple title="Capture Kit" name="selectKit" data-actions-box="true" data-selected-text-format="count > 3"
-                            style=" text-align: center; margin: 0 auto;" data-width="55%" multiple data-max-options="20">
+                        <select id="selectKit" class="selectpicker" multiple title="Capture Kit" name="selectKit" data-actions-box="true" data-selected-text-format="count > 3" style=" text-align: center; margin: 0 auto;" data-width="55%" multiple data-max-options="20">
                             <!-- inserta dinamicamente option-->
 
                         </select>
@@ -265,8 +260,7 @@
         justify-content: center;">
             <div id="btn-launch" onclick="urlKit()" style=" padding-right:5px;width: 200px; float: left; margin:0 auto;" class="btn btn-success  btn-block">Launch</div>
             <div disabled class="btn btn-secondary">&nbsp;</div>
-            <div id="btn-clean" onclick="clean()" style=" width:200px; float: left; color: aliceblue; margin: 0 auto; background-color: rgba(12, 10, 10, 0.61);"
-                class="btn btn-secondary btn-block">Clean</div>
+            <div id="btn-clean" onclick="clean()" style=" width:200px; float: left; color: aliceblue; margin: 0 auto; background-color: rgba(12, 10, 10, 0.61);" class="btn btn-secondary btn-block">Clean</div>
         </div>
 
         <script>
@@ -279,7 +273,7 @@
 
             ////armar array con los kit seleccionados//////      
             var array = [];
-            $('#selectKit').change(function () {
+            $('#selectKit').change(function() {
                 // Obtener valor del las opciones selecionadas
                 var selectValue = $("#selectKit").val();
                 //  $("#resultadoValue").text(selectValue);
@@ -296,118 +290,142 @@
 
             ////armardo de la url con el id kit seleccionado y los valores genes////// 
             function urlKit() {
-                
+
                 var ipServer = "10.100.100.55:8081";
                 var kitsSeleccionados = array.toString();
-    
+
                 //////traemos los valores de los genes introducidos en el input/////////
                 var csvValues = document.getElementById('input-csv').value;
                 csvValues = csvValues.split(",");
-                console.log("http://"+ipServer+"/genecovapp/getGeneStats/" + kitsSeleccionados + "/" + csvValues + "");
-    //            window.open("http://"+ipServer+"/genecovapp/getGeneStats/" + kitsSeleccionados + "/" + csvValues + "");                  
-                window.open("http://127.0.0.1:8887/tabla.html");                  
+                console.log("http://" + ipServer + "/genecovapp/getGeneStats/" + kitsSeleccionados + "/" + csvValues + "");
+                //            window.open("http://"+ipServer+"/genecovapp/getGeneStats/" + kitsSeleccionados + "/" + csvValues + "");                  
+                window.open("http://127.0.0.1:45985/tabla.html");
 
 
                 /////armamos una variable para traer el archivo json/////
-                var urlProcesada = "http://"+ipServer+"/genecovapp/getGeneStats/" + kitsSeleccionados + "/" + csvValues + "";
-                    
+                var urlProcesada = "http://" + ipServer + "/genecovapp/getGeneStats/" + kitsSeleccionados + "/" + csvValues + "";
+
                 ///buscamos las propiedades de los genes seleccionados en la url resultado///
-                $.getJSON(urlProcesada, function (genesjson) {
-                        
-                    console.log("entro >>> "+genesjson[0]["genes"][0].symbol);
-                    console.log("longitud array KIT >>> "+genesjson.length);
-                    console.log("longitud array GENES >>> "+genesjson[0]["genes"].length);
-                        
-                ////recorremos para buscar el KIT////
+                $.getJSON(urlProcesada, function(genesjson) {
 
-                        for (k = 0; k < genesjson.length; k++) {
-                                                                                      
-                            var kitname = genesjson[k].name;
-                            console.log("KITNAME : "+kitname);
+                    console.log("entro >>> " + genesjson[0]["genes"][0].symbol);
+                    console.log("longitud array KIT >>> " + genesjson.length);
+                    console.log("longitud array GENES >>> " + genesjson[0]["genes"].length);
 
+                    ////recorremos para buscar el KIT////
+
+                    for (k = 0; k < genesjson.length; k++) {
+
+                        var kitname = genesjson[k].name;
+                        console.log("KITNAME : " + kitname);
+
+                        var tabla = document.getElementById("tabla");
+                        var fila = document.createElement("tr")
+                        var row = document.createElement("th");
+                        var celda = document.createElement("td");
+                        row.setAttribute("colSpan", "7");
+                        row.setAttribute("align", "center");
+                        row.setAttribute("style", "background-color: #A91640;");
+                        row.style.color = '#F7F4F3';
+
+
+                        var texto = document.createTextNode(kitname);
+                        celda.appendChild(texto);
+                        row.appendChild(celda);
+                        fila.appendChild(row);
+                        tabla.appendChild(fila);
+
+
+                        ///subrecorrido para encontrar los genes dentro de ese kit de cover//////
+
+                        console.log("GENES DENTRO DEL KIT :  " + genesjson[k]["genes"].length);
+
+                        for (g = 0; g < genesjson[k]["genes"].length; g++) {
+
+                            console.log(genesjson[k]["genes"][g].symbol);
+                            var symbol = genesjson[k]["genes"][g].symbol;
+
+                            console.log(genesjson[k]["genes"][g].coverageCDS);
+                            var coverageCDS = genesjson[k]["genes"][g].coverageCDS.toFixed(3);
+
+                            console.log(genesjson[k]["genes"][g].coverageCDSUTR);
+                            var coverageCDSUTR = genesjson[k]["genes"][g].coverageCDSUTR.toFixed(3);
+
+                            console.log(genesjson[k]["genes"][g].pathogenicVariants);
+                            var pathogenicVariants = genesjson[k]["genes"][g].pathogenicVariants.toFixed(3);
+
+                            console.log(genesjson[k]["genes"][g].pathogenicVariantsCover);
+                            var pathogenicVariantsCover = genesjson[k]["genes"][g].pathogenicVariantsCover.toFixed(3);
+
+                            console.log(genesjson[k]["genes"][g].variantNotCovered);
+                            var variantNotCovered = genesjson[k]["genes"][g].variantNotCovered;
+
+                            console.log(genesjson[k]["genes"][g].synonyms);
+                            var synonyms = genesjson[k]["genes"][g].synonyms;
+
+                            /////////traemos la tabla y creamos las celdas//////////
                             var tabla = document.getElementById("tabla");
+
+                            //una fila//
                             var fila = document.createElement("tr")
+
+                            //por cada celda una col (cada th hay un td)//
                             var row = document.createElement("th");
-                            var celda = document.createElement("td");
-                            row.setAttribute("colSpan", "7");
-                            row.setAttribute("align", "center");
-                            row.setAttribute("style", "background-color: #A91640;");
-                            row.style.color = '#F7F4F3';
+                            var row2 = document.createElement("th");
+                            var row3 = document.createElement("th");
+                            var row4 = document.createElement("th");
+                            var row5 = document.createElement("th");
+                            var row6 = document.createElement("th");
+                            var row7 = document.createElement("th");
+                            var celda1 = document.createElement("td");
+                            var celda2 = document.createElement("td");
+                            var celda3 = document.createElement("td");
+                            var celda4 = document.createElement("td");
+                            var celda5 = document.createElement("td");
+                            var celda6 = document.createElement("td");
+                            var celda7 = document.createElement("td");
 
+                            //textos de las 2 celdas//
+                            var texto1 = document.createTextNode(symbol);
+                            var texto2 = document.createTextNode(coverageCDS);
+                            var texto3 = document.createTextNode(coverageCDSUTR);
+                            var texto4 = document.createTextNode(pathogenicVariants);
+                            var texto5 = document.createTextNode(pathogenicVariantsCover);
+                            var texto6 = document.createTextNode(variantNotCovered);
+                            var texto7 = document.createTextNode(synonyms);
 
-                            var texto = document.createTextNode(kitname);
-                            celda.appendChild(texto);
-                            row.appendChild(celda);
+                            //pegamos los componentes a sus padres//
+                            celda1.appendChild(texto1);
+                            celda2.appendChild(texto2);
+                            celda3.appendChild(texto3);
+                            celda4.appendChild(texto4)
+                            celda5.appendChild(texto5)
+                            celda6.appendChild(texto6)
+                            celda7.appendChild(texto7)
+                            row.appendChild(celda1);
+                            row2.appendChild(celda2);
+                            row3.appendChild(celda3);
+                            row4.appendChild(celda4);
+                            row5.appendChild(celda5);
+                            row6.appendChild(celda6);
+                            row7.appendChild(celda7);
                             fila.appendChild(row);
+                            fila.appendChild(row2);
+                            fila.appendChild(row3);
+                            fila.appendChild(row4);
+                            fila.appendChild(row5);
+                            fila.appendChild(row6);
+                            fila.appendChild(row7);
                             tabla.appendChild(fila);
 
-                            
-                ///subrecorrido para encontrar los genes dentro de ese kit de cover//////
-                          
-                            console.log("GENES DENTRO DEL KIT :  "+genesjson[k]["genes"].length);
-                            
-                            for( g=0; g < genesjson[k]["genes"].length; g++){
-                                
-                                console.log(genesjson[k]["genes"][g].symbol);
-                                var symbol = genesjson[k]["genes"][g].symbol;
-                                
-                                console.log(genesjson[k]["genes"][g].coverageCDS);
-                                var coverageCDS = genesjson[k]["genes"][g].coverageCDS;
-
-                                console.log(genesjson[k]["genes"][g].coverageCDSUTR);
-                                var coverageCDSUTR = genesjson[k]["genes"][g].coverageCDSUTR;
-                                
-                                console.log(genesjson[k]["genes"][g].pathogenicVariants);
-                                var pathogenicVariants = genesjson[k]["genes"][g].pathogenicVariants;
-                                
-                                console.log(genesjson[k]["genes"][g].pathogenicVariantsCover);
-                                var pathogenicVariantsCover = genesjson[k]["genes"][g].pathogenicVariantsCover;
-                                
-                                console.log(genesjson[k]["genes"][g].variantNotCovered);
-                                var variantNotCovered = genesjson[k]["genes"][g].variantNotCovered;
-                                
-                                console.log(genesjson[k]["genes"][g].synonyms);
-                                var synonyms = genesjson[k]["genes"][g].synonyms;
-
-                          /////////traemos la tabla y creamos las celdas//////////
-                                var tabla = document.getElementById("tabla");
-                    
-                                //una fila//
-                                var fila = document.createElement("tr")
-                                
-                                //por cada celda una col (cada th hay un td)//
-                                var row = document.createElement("th");
-                                var row2 = document.createElement("th");
-                                var row3 = document.createElement("th");
-                                var celda1 = document.createElement("td");
-                                var celda2 = document.createElement("td");
-                                var celda3 = document.createElement("td");
-
-                                //textos de las 2 celdas//
-                                var texto1 = document.createTextNode(symbol);
-                                var texto2 = document.createTextNode(coverageCDS);
-                                var texto3 = document.createTextNode(coverageCDSUTR);
-                                
-                                //pegamos los componentes a sus padres//
-                                celda1.appendChild(texto1);
-                                celda2.appendChild(texto2);
-                                celda3.appendChild(texto3);
-                                row.appendChild(celda1);
-                                row2.appendChild(celda2);
-                                row3.appendChild(celda3);
-                                fila.appendChild(row);
-                                fila.appendChild(row2);
-                                fila.appendChild(row3);
-                                tabla.appendChild(fila);
-                                
-                                ///FIN traemos la tabla y creamos las celdas///
-                            }
-                        
+                            ///FIN traemos la tabla y creamos las celdas///
                         }
 
-                 });
+                    }
+
+                });
             }
-            
+
         </script>
 
         <hr style="max-width: 770px;">
@@ -416,78 +434,70 @@
 
         <div>
 
-      
-                <table class="table table-sm">
-                        <thead>
-                          <tr>
-                            <th scope="col">Symbol</th>
-                            <th scope="col">CoverageCDS</th>
-                            <th scope="col">CoverageCDSUTR</th>
-                            <th scope="col">PathogenicVariants</th>
-                            <th scope="col">PathogenicVariantsCover</th>
-                            <th scope="col">VariantNotCovered</th>
-                            <th scope="col">Synonyms</th>
-                          </tr>
-                        </thead>
-                        <tbody id="tabla">
-                         <!-- <tr>
+
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col">Symbol</th>
+                        <th scope="col">CoverageCDS</th>
+                        <th scope="col">CoverageCDSUTR</th>
+                        <th scope="col">PathogenicVariants</th>
+                        <th scope="col">PathogenicVariantsCover</th>
+                        <th scope="col">VariantNotCovered</th>
+                        <th scope="col">Synonyms</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla">
+                    <!-- <tr>
                             <th></th>
                             <td></td>
                             <td>Otto</td>
                             <td>@mdo</td>
                           </tr>-->
-                        </tbody>
-                      </table>
+                </tbody>
+            </table>
         </div>
 
 
         <script>
-/*
-                for(i=0 ; i< 4 ; i++){
-                var tabla = document.getElementById("tabla");
-                
-                //una fila//
-                var fila = document.createElement("tr")
-                
-                //por cada celda una col (cada th hay un td)//
-                var row = document.createElement("th");
-                var row2 = document.createElement("th")
-                var celda1 = document.createElement("td");
-                var celda2 = document.createElement("td");
+            /*
+                                        for(i=0 ; i< 4 ; i++){
+                                        var tabla = document.getElementById("tabla");
+                                        
+                                        //una fila//
+                                        var fila = document.createElement("tr")
+                                        
+                                        //por cada celda una col (cada th hay un td)//
+                                        var row = document.createElement("th");
+                                        var row2 = document.createElement("th")
+                                        var celda1 = document.createElement("td");
+                                        var celda2 = document.createElement("td");
 
-                //textos de las 2 celdas//
-                var texto1 = document.createTextNode("gen: "+i);
-                var texto2 = document.createTextNode("goto");
-                
-                // var texto2 = symbol;
-                //pegamos los componentes a sus padres//
-                celda1.appendChild(texto1);
-                celda2.appendChild(texto2);
-                row.appendChild(celda1);
-                row2.appendChild(celda2);
-                fila.appendChild(row);
-                fila.appendChild(row2);
-                tabla.appendChild(fila);
-                }
-                */
-                </script>
+                                        //textos de las 2 celdas//
+                                        var texto1 = document.createTextNode("gen: "+i);
+                                        var texto2 = document.createTextNode("goto");
+                                        
+                                        // var texto2 = symbol;
+                                        //pegamos los componentes a sus padres//
+                                        celda1.appendChild(texto1);
+                                        celda2.appendChild(texto2);
+                                        row.appendChild(celda1);
+                                        row2.appendChild(celda2);
+                                        fila.appendChild(row);
+                                        fila.appendChild(row2);
+                                        tabla.appendChild(fila);
+                                        }
+                                        */
+
+        </script>
 
 
         <div style="max-width: 900px; margin:0 auto;">
             <h4>About GeneCovAPP</h4>
-            <p style="font-size:.9em; text-align: justify">The Genecovapp is a web application aimed to be a strong and trustable tool for aiding throughout the process
-                of experimental design for Clinical NGS.</p>
+            <p style="font-size:.9em; text-align: justify">The Genecovapp is a web application aimed to be a strong and trustable tool for aiding throughout the process of experimental design for Clinical NGS.</p>
             <p style="font-size:.9em; text-align: justify;">Along our experience in Clinical NGS in
-                <a href="http://www.biargentina.com.ar/"> BIA </a>, we have identified the experimental design as the first and one of the most challenging pitfalls
-                to overcome in order to get the expected results. Developing of a tool that could help in this critical step
-                can improve not only the times needed for beginning with NGS experiments, but also to acquiring a bigger
-                rate of succes.</p>
-            <p style="font-size:.9em; text-align: justify;">GeneCovApp allows users to check the coverage of diferent available commercial enrichment kits (or even your
-                own design, by uploading a BED file) for a list of Genes or variants, by generating an interactive complete
-                report containing the data required for correctly evaluating wich options are the best. This web application
-                also provides a service for evaluating those experiments already done, by uploading your own VCFs files,
-                and assesing the quality of the experimental design and compare these results with the data obtained from
-                the a priori analysis.</p>
+                <a href="http://www.biargentina.com.ar/"> BIA </a>, we have identified the experimental design as the first and one of the most challenging pitfalls to overcome in order to get the expected results. Developing of a tool that could help in this critical step can improve not only the times needed for beginning with NGS experiments, but also to acquiring a bigger rate of succes.</p>
+            <p style="font-size:.9em; text-align: justify;">GeneCovApp allows users to check the coverage of diferent available commercial enrichment kits (or even your own design, by uploading a BED file) for a list of Genes or variants, by generating an interactive complete report containing the data required for correctly evaluating wich options are the best. This web application also provides a service for evaluating those experiments already done, by uploading your own VCFs files, and assesing the quality of the experimental design and compare these results with the data obtained from the a priori analysis.</p>
             <p style="font-size:.9em; text-align: justify;">Check the github page for the project if you are interested in the code behind GeneCovApp
                 <a href="https://github.com">here</a>.</p>
         </div>
