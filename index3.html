@@ -304,8 +304,10 @@
                 var csvValues = document.getElementById('input-csv').value;
                 csvValues = csvValues.split(",");
                 console.log("http://"+ipServer+"/genecovapp/getGeneStats/" + kitsSeleccionados + "/" + csvValues + "");
-                window.open("http://"+ipServer+"/genecovapp/getGeneStats/" + kitsSeleccionados + "/" + csvValues + "");                  
-                
+    //            window.open("http://"+ipServer+"/genecovapp/getGeneStats/" + kitsSeleccionados + "/" + csvValues + "");                  
+                window.open("http://127.0.0.1:8887/tabla.html");                  
+
+
                 /////armamos una variable para traer el archivo json/////
                 var urlProcesada = "http://"+ipServer+"/genecovapp/getGeneStats/" + kitsSeleccionados + "/" + csvValues + "";
                     
@@ -320,8 +322,25 @@
 
                         for (k = 0; k < genesjson.length; k++) {
                                                                                       
-                            kitname = genesjson[k].name;
+                            var kitname = genesjson[k].name;
                             console.log("KITNAME : "+kitname);
+
+                            var tabla = document.getElementById("tabla");
+                            var fila = document.createElement("tr")
+                            var row = document.createElement("th");
+                            var celda = document.createElement("td");
+                            row.setAttribute("colSpan", "7");
+                            row.setAttribute("align", "center");
+                            row.setAttribute("style", "background-color: #A91640;");
+                            row.style.color = '#F7F4F3';
+
+
+                            var texto = document.createTextNode(kitname);
+                            celda.appendChild(texto);
+                            row.appendChild(celda);
+                            fila.appendChild(row);
+                            tabla.appendChild(fila);
+
                             
                 ///subrecorrido para encontrar los genes dentro de ese kit de cover//////
                           
@@ -333,30 +352,62 @@
                                 var symbol = genesjson[k]["genes"][g].symbol;
                                 
                                 console.log(genesjson[k]["genes"][g].coverageCDS);
-                                console.log(genesjson[k]["genes"][g].coverageCDSUTR);
-                                console.log(genesjson[k]["genes"][g].pathogenicVariants);
-                                console.log(genesjson[k]["genes"][g].pathogenicVariantsCover);
-                                console.log(genesjson[k]["genes"][g].variantNotCovered);
-                                console.log(genesjson[k]["genes"][g].synonyms);
- 
-                            }
-                           /* var x = document.getElementById("selectKit");
-                            var option = document.createElement("option");
-                            option.text = valorKitname;
-                            option.value = i + 1;
-                            x.appendChild(option);*/
-    //                        console.log(" Nombre - "+genSymbol);
+                                var coverageCDS = genesjson[k]["genes"][g].coverageCDS;
 
-      //                  }
-        //            });
+                                console.log(genesjson[k]["genes"][g].coverageCDSUTR);
+                                var coverageCDSUTR = genesjson[k]["genes"][g].coverageCDSUTR;
+                                
+                                console.log(genesjson[k]["genes"][g].pathogenicVariants);
+                                var pathogenicVariants = genesjson[k]["genes"][g].pathogenicVariants;
+                                
+                                console.log(genesjson[k]["genes"][g].pathogenicVariantsCover);
+                                var pathogenicVariantsCover = genesjson[k]["genes"][g].pathogenicVariantsCover;
+                                
+                                console.log(genesjson[k]["genes"][g].variantNotCovered);
+                                var variantNotCovered = genesjson[k]["genes"][g].variantNotCovered;
+                                
+                                console.log(genesjson[k]["genes"][g].synonyms);
+                                var synonyms = genesjson[k]["genes"][g].synonyms;
+
+                          /////////traemos la tabla y creamos las celdas//////////
+                                var tabla = document.getElementById("tabla");
                     
+                                //una fila//
+                                var fila = document.createElement("tr")
+                                
+                                //por cada celda una col (cada th hay un td)//
+                                var row = document.createElement("th");
+                                var row2 = document.createElement("th");
+                                var row3 = document.createElement("th");
+                                var celda1 = document.createElement("td");
+                                var celda2 = document.createElement("td");
+                                var celda3 = document.createElement("td");
+
+                                //textos de las 2 celdas//
+                                var texto1 = document.createTextNode(symbol);
+                                var texto2 = document.createTextNode(coverageCDS);
+                                var texto3 = document.createTextNode(coverageCDSUTR);
+                                
+                                //pegamos los componentes a sus padres//
+                                celda1.appendChild(texto1);
+                                celda2.appendChild(texto2);
+                                celda3.appendChild(texto3);
+                                row.appendChild(celda1);
+                                row2.appendChild(celda2);
+                                row3.appendChild(celda3);
+                                fila.appendChild(row);
+                                fila.appendChild(row2);
+                                fila.appendChild(row3);
+                                tabla.appendChild(fila);
+                                
+                                ///FIN traemos la tabla y creamos las celdas///
+                            }
+                        
                         }
 
                  });
-
             }
             
-
         </script>
 
         <hr style="max-width: 770px;">
@@ -369,10 +420,13 @@
                 <table class="table table-sm">
                         <thead>
                           <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
+                            <th scope="col">Symbol</th>
+                            <th scope="col">CoverageCDS</th>
+                            <th scope="col">CoverageCDSUTR</th>
+                            <th scope="col">PathogenicVariants</th>
+                            <th scope="col">PathogenicVariantsCover</th>
+                            <th scope="col">VariantNotCovered</th>
+                            <th scope="col">Synonyms</th>
                           </tr>
                         </thead>
                         <tbody id="tabla">
@@ -388,7 +442,7 @@
 
 
         <script>
-
+/*
                 for(i=0 ; i< 4 ; i++){
                 var tabla = document.getElementById("tabla");
                 
@@ -403,9 +457,9 @@
 
                 //textos de las 2 celdas//
                 var texto1 = document.createTextNode("gen: "+i);
-                //var texto2 = document.createTextNode("goto");
+                var texto2 = document.createTextNode("goto");
                 
-                    var texto2 = symbol;
+                // var texto2 = symbol;
                 //pegamos los componentes a sus padres//
                 celda1.appendChild(texto1);
                 celda2.appendChild(texto2);
@@ -415,7 +469,7 @@
                 fila.appendChild(row2);
                 tabla.appendChild(fila);
                 }
-                
+                */
                 </script>
 
 
