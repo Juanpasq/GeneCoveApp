@@ -18,9 +18,8 @@ $(document).ready(function () {
                         option.value = valorKitname;
                         x.appendChild(option);
                         console.log("ID - " + valorKitname + " >  Kitname - " + kitname);
-                       
 
-                    }
+                    } 
                 });
 
     /////render necesario para refrescar el select //////
@@ -36,27 +35,6 @@ $(document).ready(function () {
                     mySelect.selectpicker('render');
                     
                });
-               
-               
-      /*         var array = [];
-                       $('#selectKit').change(function () {
-                 // Obtener valor del las opciones selecionadas
-                    var selectValue = $("#selectKit").val();
-                  //  $("#resultadoValue").text(selectValue);
-                  // ver como queda el array de seleccionados final/////
-                    console.log(selectValue);
-                        array = selectValue;
-                        return (array);
-
-  
-                    // Obtener el texto del las opciones selecionadas
-                 /*     var selectText = $("#selectKit option:selected").map(function () {
-                      return $(this).text();
-                    }).get().join(',');
-                    $('#resultadoTexto').text(selectText); 
-        }); 
-        
-            */
        
     ////// funcion para leer un archivo via remoto http ////////
 
@@ -75,10 +53,6 @@ $(document).ready(function () {
             });
         });
     });*/
-
-    
-    
-    
 
     //// Leer un archivo TXT Local /////////
 
