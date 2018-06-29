@@ -41,102 +41,51 @@
 
         }
 
-        #contenedor {
-            margin: 40px auto;
-            width: 750px;
-            /* Ancho del contenedor */
-            box-sizing: border-box;
-            -moz-box-sizing: border-box;
-        }
-
-        #contenedor input {
-            height: 32px;
-            visibility: hidden;
-        }
-
-        #contenedor label {
-            float: left;
-            cursor: pointer;
-            font-size: 15px;
-            /* Tamaño del texto de las pestañas */
-            line-height: 40px;
-            height: 40px;
-            padding: 0 20px;
-            display: block;
-            color: #888;
-            /* Color del texto de las pestañas */
-            text-align: center;
-            border-radius: 5px 5px 0 0;
-            background: #eee;
-            /* Fondo de las pestañas */
-            margin-right: 5px;
-        }
-
-        #contenedor input:hover+label {
-            background: #ddd;
-            /* Fondo de las pestañas al pasar el cursor por encima */
-            color: #666;
-            /* Color del texto de las pestañas al pasar el cursor por encima */
-        }
-
-        #contenedor input:checked+label {
-            background: #FFDA91;
-            /* Fondo de las pestañas al presionar */
-            color: #444;
-            /* Color de las pestañas al presionar */
-            z-index: 6;
-            line-height: 45px;
-            height: 45px;
-            position: relative;
-            top: -5px;
-            -webkit-transition: .1s;
-            -moz-transition: .1s;
-            -o-transition: .1s;
-            -ms-transition: .1s;
-        }
-
-        .content {
-            background: #FFDA91;
-            /* Fondo del contenido */
-            position: relative;
-            width: 100%;
-            height: 350px;
-            /* Alto del contenido */
-            padding: 30px;
-            z-index: 5;
-            border-radius: 0 5px 5px 5px;
-        }
-
-        .content div {
-            position: absolute;
-            z-index: -100;
-            opacity: 0;
-            transition: all linear 0.1s;
-        }
-
-        #contenedor input.tab-selector-1:checked~.content .content-1,
-        #contenedor input.tab-selector-2:checked~.content .content-2,
-        #contenedor input.tab-selector-3:checked~.content .content-3,
-        #contenedor input.tab-selector-4:checked~.content .content-4 {
-            z-index: 100;
-            opacity: 1;
-            -webkit-transition: all ease-out 0.2s 0.1s;
-            -moz-transition: all ease-out 0.2s 0.1s;
-            -o-transition: all ease-out 0.2s 0.1s;
-            -ms-transition: all ease-out 0.2s 0.1s;
+        
+      .table-responsive {
+          
+            @include media-breakpoint-up(md) {
+                display: table;
+            }
         }
         
         table {
             
+            width: 500px;
+            margin: 0 auto;
             font-size: 0.95em;
-            text-align: auto;                       
+            text-align: auto;
+            align-content: center;
+            align-items: center;
+            
         }
         
-        tbody,td {
+        
+        th {
             
-           
+            margin: 0 auto;
         }
-
+        
+        td {
+            
+            text-align: justify;
+            max-width: 500px;
+            overflow: hidden;
+            text-overflow:clip;
+            white-space: nowrap;
+        }
+        
+        td:hover {
+            
+            overflow-x:visible;
+        }
+        
+        #contenidoTabla {
+            
+            margin: 0 auto;
+            align-items: center;
+            text-align: center;
+        }
     
     </style>
 
@@ -316,7 +265,7 @@
                 csvValues = csvValues.split(",");
                 console.log("http://" + ipServer + "/genecovapp/getGeneStats/" + kitsSeleccionados + "/" + csvValues + "");
                 //            window.open("http://"+ipServer+"/genecovapp/getGeneStats/" + kitsSeleccionados + "/" + csvValues + "");                  
-                window.open("tabla.html");
+                //window.open("tabla.html");
 
 
                 /////armamos una variable para traer el archivo json/////
@@ -402,10 +351,12 @@
                             
                             var celda1 = document.createElement("td");
                             var celda2 = document.createElement("td");
-                            var celda3 = document.createElement("td");                            
+                            var celda3 = document.createElement("td");
+                            
+                            celda3.style.textAlign = "center";
                             var celda4 = document.createElement("td");
                             var celda5 = document.createElement("td");
-                            var celda6 = document.createElement("td");
+                            var celda6 = document.createElement("td");                            
                             var celda7 = document.createElement("td");
 
                             //textos de las 7 celdas//
@@ -421,10 +372,11 @@
                             celda1.appendChild(texto1);
                             celda2.appendChild(texto2);
                             celda3.appendChild(texto3);
-                            celda4.appendChild(texto4)
-                            celda5.appendChild(texto5)
-                            celda6.appendChild(texto6)
-                            celda7.appendChild(texto7)
+                            celda4.appendChild(texto4);
+                            celda5.appendChild(texto5);
+                            celda6.appendChild(texto6);
+                            celda7.appendChild(texto7);
+                            
                             row.appendChild(celda1);
                             row2.appendChild(celda2);
                             row3.appendChild(celda3);
@@ -432,6 +384,7 @@
                             row5.appendChild(celda5);
                             row6.appendChild(celda6);
                             row7.appendChild(celda7);
+                            
                             fila.appendChild(row);
                             fila.appendChild(row2);
                             fila.appendChild(row3);
@@ -439,6 +392,7 @@
                             fila.appendChild(row5);
                             fila.appendChild(row6);
                             fila.appendChild(row7);
+                            
                             tabla.appendChild(fila);
 
                             ///FIN traemos la tabla y creamos las celdas///
@@ -469,11 +423,11 @@
         <hr style="max-width: 770px;">
                 
         
-        <div class="table-responsive">
+        <div class="table-responsive" style="visibility:">
 
-            <table class="table" id="tabla">
-                <thead style="background-color: #2D2A2F; color: antiquewhite">
-                    <tr>
+            <table class="table" id="tabla" style="align-items: center">
+                <thead style="background-color: #2D2A2F; color: antiquewhite; margin: 0 auto">
+                    <tr style="margin: 0 auto">
                         <th >Symbol</th>
                         <th >CovCDS</th>
                         <th >CovCDSUTR</th>
@@ -484,7 +438,7 @@
                     </tr>
                 </thead>
                 <tbody id="contenidoTabla">
-                        <!--<tr>
+                       <!-- <tr>
                             <th></th>
                             <td></td>
                             <td>Otto</td>
