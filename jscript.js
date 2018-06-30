@@ -1,11 +1,7 @@
-
-$(document).ready(function() {
-    
-
-    
+$(document).ready(function () {
+ 
     ////////traer el json de kitnames/////////// 
         var ipServer = "10.100.100.55:8081";
-    
         $.getJSON("http://"+ipServer+"/genecovapp/getAllKit", function(kitjson) {
 
                     for (i = 0; i < kitjson.length; i++) {
@@ -55,14 +51,6 @@ $(document).ready(function() {
         });
     });*/
 
-    ///xxxxxxxxxx////
-    
-   
-    ///xxxxxxxx////
-    
-    
-    
-    
     //// Leer un archivo TXT Local /////////
 
     function leerArchivo(e) {
@@ -93,6 +81,6 @@ $(document).ready(function() {
 
     ////////////////////////////////////////////////////
 
-
 }); ////cierre documentReady////////
+
 
