@@ -501,7 +501,7 @@
                             ///FIN traemos la tabla y creamos las celdas///
 
                             var divTabla = document.getElementById("divTabla");
-                            divTabla.style.visibility = "visible";
+                            divTabla.style.display = "block";
 
                             var modal = document.getElementById('myModal');
                             modal.style.display = "none";
@@ -530,7 +530,7 @@
         <hr style="max-width: 770px;">
 
 
-        <div class="table-responsive" style="visibility:hidden" id="divTabla">
+        <div class="table-responsive" style="display:none" id="divTabla">
             <a onclick="exportTableToCSV('genecove.csv')" href="#" class="btn btn-success">
                 <span class="glyphicon glyphicon-floppy-save"></span> Download to .csv file</a>
             <p></p>
