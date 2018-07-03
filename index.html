@@ -45,6 +45,7 @@
 
             @include media-breakpoint-up(md) {
                 display: table;
+                
             }
         }
 
@@ -314,9 +315,9 @@
         <!-- boton launch procesar -->
         <div padding class="row " style="margin: 0 auto;padding:1em; max-width:420px; text-align: justify;display: flex;
         justify-content: center;">
-            <div id="btn-launch" onclick="url()" style=" padding-right:5px;width: 200px; float: left; margin:0 auto;" class="btn btn-success  btn-block">Launch</div>
+            <div id="btn-launch" onclick="url()" style=" padding-right:5px;width: 200px; float: left; margin:0 auto;" class="btn btn-success  btn-block"><span class="glyphicon glyphicon-play"></span>&nbsp;&nbsp;Launch</div>
             <div disabled class="btn btn-secondary">&nbsp;</div>
-            <div id="btn-clean" onclick="clean()" style=" width:200px; float: left; color: aliceblue; margin: 0 auto; background-color: rgba(12, 10, 10, 0.61);" class="btn btn-secondary btn-block">Clean</div>
+            <div id="btn-clean" onclick="clean()" style=" width:200px; float: left; color: aliceblue; margin: 0 auto; background-color: rgba(12, 10, 10, 0.61);" class="btn btn-secondary btn-danger"><span class="glyphicon glyphicon-refresh"></span>&nbsp;&nbsp;Clean</div>
         </div>
 
 
