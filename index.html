@@ -3,23 +3,19 @@
 
 <head>
 
-    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl"
-        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
 
     <!-- JQuery 3.1 -->
     <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <script type="text/javascript" src="jscript.js"></script>
 
@@ -29,8 +25,8 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
 
-    <!-- (Optional) Latest compiled and minified JavaScript translation files -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/i18n/defaults-*.min.js"></script>
+    <!-- spinner loader -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <style>
         body {
@@ -52,6 +48,8 @@
             }
         }
 
+        /**tabla de datos procesados**/
+
         table {
 
             width: 500px;
@@ -60,7 +58,6 @@
             text-align: auto;
             align-content: center;
             align-items: center;
-
         }
 
 
@@ -80,6 +77,94 @@
         td:hover {
             overflow-x: visible;
         }
+
+        /*+++loader css++++++*/
+
+        .loader {
+
+            border: 10px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 10px solid #3498db;
+            width: 50px;
+            height: 50px;
+            margin: auto;
+            z-index: auto;
+            text-align: center;
+            -webkit-animation: spin 1.5s linear infinite;
+            /* Safari */
+            animation: spin 1.5s linear infinite;
+        }
+
+        /* Safari */
+
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* The Modal (background) */
+
+        .modal {
+            margin: auto;
+            display: ;
+            /* Hidden by default */
+            z-index: 3;
+            /* Sit on top */
+            padding-top: 100px;
+            /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.6);
+            /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+
+        .modal-content {
+            background-color: transparent;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+            width: 80%;
+        }
+
+        /* The Close Button */
+
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: transparent;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
     </style>
 
 </head>
@@ -127,9 +212,8 @@
         <h1 id="home-title" style="font-size: 50px; text-align:center;">GeneCovApp</h1>
         <p class="text-muted" style="font-size: 24px; text-align:center;"> A simple webapp for a priori and a posteriori evaluation of experimental design in clinical NGS </p>
 
-        <!-- <h4 style="text-align:center"> A webapp for a priori and a posteriori evaluation of experimental designs in clinical NGS</h4> -->
-
-        <br>
+        <!--Spinner div -->
+        <div class="loader" id="loader" style="visibility: hidden"></div>
 
         <div padding class="form-group" style=" margin: 0 auto; padding:1em; max-width: 800px; text-align: center;">
 
@@ -137,8 +221,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="input-group" id="adv-search">
-                        <input type="text" id="input-csv" class="form-control" placeholder="Search code" onkeyup="this.value = this.value.toUpperCase();"
-                            style="max-width:770px;" />
+                        <input type="text" id="input-csv" class="form-control" placeholder="Search code" onkeyup="this.value = this.value.toUpperCase();" style="max-width:770px;" />
                         <span class="form-control-clear glyphicon glyphicon-remove form-control-feedback hidden"></span>
                         <!--boton upload file-->
                         <div class="input-group-btn">
@@ -163,36 +246,53 @@
             </p>
             <br>
 
-            <!--armar el select de kitname, no se por que no me funciona desde el archivo js, lo tengo que poner aca-->
+            <!-- modulo de modal + spinner -->
+            <div id="myModal" class="modal">
+
+                <!-- Modal content + loader-->
+                <div class="">
+                    <div class="loader" id="loader" style="visibility:visible; margin-top:15%"></div>
+
+                </div>
+
+            </div>
+
+            <script>
+                // Get the modal
+                var modal = document.getElementById('myModal');
+
+                // Get the button that opens the modal
+                var btn = document.getElementById("myBtn");
+
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
 
 
-            <!-- Al parecer los metodos cross origin request no permiten cargar archivos locales. Yo probe levantando la rest API y por alguna cuestion de permisos que no entiendo bien no le puedo pegar al json. 
+                // When the user clicks the button, open the modal 
+                btn.onclick = function() {
+                    modal.style.display = "block";
+                }
 
-            CONSOLE: Failed to load file:///home/geronimodubra/BIA/git/vista/genesHTML/kits.json: Cross origin requests are only supported for protocol schemes: http, data, chrome, chrome-extension, https.
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function() {
+                    modal.style.display = "none";
+                }
 
-            -->
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
 
-
-            <!-- Para probar el script:
-
-            - ir al directorio genesHtml y levantar un server simple (con python por ej: python2 -m SimpleHTTPServer levanta en localhost:8000 el index.html y en localhost:8000/kits.json el archivo con los kits)
-                
-            - cambiar la primera linea a:
-
-                $.getJSON("localhost:8000/kits.json", function (kitjson) {
-
-            - por el navegador entrar a localhost:8000
-
-            - Y voila, el selector anda a la perfeccion
-
-             -->
+            </script>
+            <!--Fin de modulo spinner + modal -->
 
             <!-- sector multiple select-->
             <div class="row" id="adv-search">
                 <div class="col-md-12">
                     <div class="input-group" id="btn-render">
-                        <select id="selectKit" class="selectpicker" multiple title="Capture Kit" name="selectKit" data-actions-box="true" data-selected-text-format="count > 2"
-                            style=" text-align: center; margin: 0 auto;" data-width="55%" multiple data-max-options="20">
+                        <select id="selectKit" class="selectpicker" multiple title="Capture Kit" name="selectKit" data-actions-box="true" data-selected-text-format="count > 2" style=" text-align: center; margin: 0 auto;" data-width="55%" multiple data-max-options="20">
                             <!-- inserta dinamicamente option-->
 
                         </select>
@@ -216,14 +316,11 @@
         justify-content: center;">
             <div id="btn-launch" onclick="url()" style=" padding-right:5px;width: 200px; float: left; margin:0 auto;" class="btn btn-success  btn-block">Launch</div>
             <div disabled class="btn btn-secondary">&nbsp;</div>
-            <div id="btn-clean" onclick="clean()" style=" width:200px; float: left; color: aliceblue; margin: 0 auto; background-color: rgba(12, 10, 10, 0.61);"
-                class="btn btn-secondary btn-block">Clean</div>
+            <div id="btn-clean" onclick="clean()" style=" width:200px; float: left; color: aliceblue; margin: 0 auto; background-color: rgba(12, 10, 10, 0.61);" class="btn btn-secondary btn-block">Clean</div>
         </div>
 
 
         <script>
-
-
             ///funcion btn cancelar ////
             function clean() {
 
@@ -235,7 +332,7 @@
             ////armar array con los kit seleccionados//////      
             var array = [];
 
-            $('#selectKit').change(function () {
+            $('#selectKit').change(function() {
                 // Obtener valor del las opciones selecionadas
                 var selectValue = $("#selectKit").val();
                 //  $("#resultadoValue").text(selectValue);
@@ -253,14 +350,27 @@
             ////armardo de la url con el id kit seleccionado y los valores genes////// 
             function url() {
 
+                var cadena = " cad en a DE text o ";
+                var cadena2 = cadena.replace(/\s/g, "");
+                console.log(cadena2 + "    pichi");
+
+                //////ejecutamos accion para poner el modal + pantalla block + spinner///////
+                modal.style.display = "block";
+
+                ////////IP SERVER////////////////
                 var ipServer = "10.100.100.55:8081";
+
                 var kitsSeleccionados = array.toString();
 
                 //////traemos los valores de los genes introducidos en el input/////////
                 var csvValues = document.getElementById('input-csv').value;
                 csvValues = csvValues.split(",");
+                // csvValues = csvValues.toString();
+                //      console.log("CSV"+csvValues);
+                //        var csvValues2 = csvValues.replace(/\s/g,""));
+                //    console.log(csvValues2+"añslkdfj");
                 console.log("http://" + ipServer + "/genecovapp/getGeneStats/" + kitsSeleccionados + "/" + csvValues + "");
-                //            window.open("http://"+ipServer+"/genecovapp/getGeneStats/" + kitsSeleccionados + "/" + csvValues + "");                  
+                //window.open("http://"+ipServer+"/genecovapp/getGeneStats/" + kitsSeleccionados + "/" + csvValues + "");                  
                 //window.open("tabla.html");
 
 
@@ -268,7 +378,7 @@
                 var urlProcesada = "http://" + ipServer + "/genecovapp/getGeneStats/" + kitsSeleccionados + "/" + csvValues + "";
 
                 ///buscamos las propiedades de los genes seleccionados en la url resultado///
-                $.getJSON(urlProcesada, function (genesjson) {
+                $.getJSON(urlProcesada, function(genesjson) {
 
                     console.log("entro >>> " + genesjson[0]["genes"][0].symbol);
                     console.log("longitud array KIT >>> " + genesjson.length);
@@ -291,15 +401,12 @@
                         row.style.color = '#F7F4F3';
                         row.style.margin = "0 auto";
 
-
                         var texto = document.createTextNode(kitname);
 
                         celda.appendChild(texto);
                         row.appendChild(celda);
                         fila.appendChild(row);
                         tabla.appendChild(fila);
-
-
 
                         ///subrecorrido para encontrar los genes dentro de ese kit de cover//////
 
@@ -311,18 +418,20 @@
                             var symbol = genesjson[k]["genes"][g].symbol;
 
                             console.log(genesjson[k]["genes"][g].coverageCDS);
-                            var coverageCDS = genesjson[k]["genes"][g].coverageCDS.toFixed(2);
+                            var coverageCDS = genesjson[k]["genes"][g].coverageCDS;
+                            coverageCDS = (coverageCDS * 100) + "%";
 
                             console.log(genesjson[k]["genes"][g].coverageCDSUTR);
-                            var coverageCDSUTR = genesjson[k]["genes"][g].coverageCDSUTR.toFixed(2);
+                            var coverageCDSUTR = genesjson[k]["genes"][g].coverageCDSUTR;
+                            coverageCDSUTR = (coverageCDSUTR * 100) + "%";
 
 
 
                             console.log(genesjson[k]["genes"][g].pathogenicVariants);
-                            var pathogenicVariants = genesjson[k]["genes"][g].pathogenicVariants.toFixed(2);
+                            var pathogenicVariants = genesjson[k]["genes"][g].pathogenicVariants;
 
                             console.log(genesjson[k]["genes"][g].pathogenicVariantsCover);
-                            var pathogenicVariantsCover = genesjson[k]["genes"][g].pathogenicVariantsCover.toFixed(2);
+                            var pathogenicVariantsCover = genesjson[k]["genes"][g].pathogenicVariantsCover;
 
                             console.log(genesjson[k]["genes"][g].variantNotCovered);
                             var variantNotCovered = genesjson[k]["genes"][g].variantNotCovered;
@@ -395,6 +504,9 @@
 
                             var divTabla = document.getElementById("divTabla");
                             divTabla.style.visibility = "visible";
+
+                            var modal = document.getElementById('myModal');
+                            modal.style.display = "none";
                         }
                     }
 
@@ -409,19 +521,10 @@
 
         <div style="max-width: 900px; margin:0 auto;">
             <h4>About GeneCovAPP</h4>
-            <p style="font-size:.9em; text-align: justify">The Genecovapp is a web application aimed to be a strong and trustable tool for aiding throughout the process
-                of experimental design for Clinical NGS.</p>
+            <p style="font-size:.9em; text-align: justify">The Genecovapp is a web application aimed to be a strong and trustable tool for aiding throughout the process of experimental design for Clinical NGS.</p>
             <p style="font-size:.9em; text-align: justify;">Along our experience in Clinical NGS in
-                <a href="http://www.biargentina.com.ar/"> BIA </a>, we have identified the experimental design as the first and one of the most challenging pitfalls
-                to overcome in order to get the expected results. Developing of a tool that could help in this critical step
-                can improve not only the times needed for beginning with NGS experiments, but also to acquiring a bigger
-                rate of succes.</p>
-            <p style="font-size:.9em; text-align: justify;">GeneCovApp allows users to check the coverage of diferent available commercial enrichment kits (or even your
-                own design, by uploading a BED file) for a list of Genes or variants, by generating an interactive complete
-                report containing the data required for correctly evaluating wich options are the best. This web application
-                also provides a service for evaluating those experiments already done, by uploading your own VCFs files,
-                and assesing the quality of the experimental design and compare these results with the data obtained from
-                the a priori analysis.</p>
+                <a href="http://www.biargentina.com.ar/"> BIA </a>, we have identified the experimental design as the first and one of the most challenging pitfalls to overcome in order to get the expected results. Developing of a tool that could help in this critical step can improve not only the times needed for beginning with NGS experiments, but also to acquiring a bigger rate of succes.</p>
+            <p style="font-size:.9em; text-align: justify;">GeneCovApp allows users to check the coverage of diferent available commercial enrichment kits (or even your own design, by uploading a BED file) for a list of Genes or variants, by generating an interactive complete report containing the data required for correctly evaluating wich options are the best. This web application also provides a service for evaluating those experiments already done, by uploading your own VCFs files, and assesing the quality of the experimental design and compare these results with the data obtained from the a priori analysis.</p>
             <p style="font-size:.9em; text-align: justify;">Check the github page for the project if you are interested in the code behind GeneCovApp
                 <a href="https://github.com">here</a>.</p>
         </div>
@@ -459,14 +562,15 @@
 
 
         <script>
-
             /////2 funciones para generar el csv y descarga////////////
             function downloadCSV(csv, filename) {
                 var csvFile;
                 var downloadLink;
 
                 // CSV file
-                csvFile = new Blob([csv], { type: "text/csv" });
+                csvFile = new Blob([csv], {
+                    type: "text/csv"
+                });
 
                 // Download link
                 downloadLink = document.createElement("a");
@@ -492,7 +596,8 @@
                 var rows = document.querySelectorAll("table tr");
 
                 for (var i = 0; i < rows.length; i++) {
-                    var row = [], cols = rows[i].querySelectorAll(" th");
+                    var row = [],
+                        cols = rows[i].querySelectorAll(" th");
 
                     for (var j = 0; j < cols.length; j++)
                         row.push(cols[j].innerText);
@@ -504,7 +609,8 @@
                 downloadCSV(csv.join("\n"), filename);
             }
 
-//////fin de 2 funciones para csv//////////////////
+            //////fin de 2 funciones para csv//////////////////
+
         </script>
 
         <!--
