@@ -148,10 +148,34 @@
         }
 
     </style>
+    
+    <script>
+        
+        function onload(){
+            
+          
+            var inpGen = document.getElementById("input-csv");
+            var inpKit = document.getElementById("selectKit");
+                
+                if( inpGen.value == ""){ 
+                    
+                    alert("sfdsafds");
+                    console.log("cerrado");
+                    document.getElementById("btn-launch").disabled = true;
+                    
+                }else{ 
+                    
+                    document.getElementById("btn-launch").disabled = false;}
+    
+                }
+    </script>
 
 </head>
 
-<body>
+<body onload="onload();">
+    
+    
+    
 
     <!-- NavBar -->
     <nav class="navbar navbar-inverse" style="border-radius:0px;">
@@ -171,7 +195,7 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="#">
+                        <a href="about.html">
                             <i class="fas fa-user-md"></i>&nbsp;&nbsp;About</a>
                     </li>
                     <li>
@@ -200,7 +224,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="input-group" id="adv-search">
-                        <input type="text" id="input-csv" class="form-control" placeholder="Search code" onkeyup="this.value = this.value.toUpperCase();" style="max-width:770px;" />
+                        <textarea rows="1" type="text" id="input-csv" class="form-control" placeholder="Search code" onkeyup="this.value = this.value.toUpperCase();" style="max-width:770px;"></textarea>
                         <span class="form-control-clear glyphicon glyphicon-remove form-control-feedback hidden"></span>
                         <!--boton upload file-->
                         <div class="input-group-btn">
@@ -249,7 +273,7 @@
                     <div class="input-group" id="btn-render">
                         <select id="selectKit" class="selectpicker" multiple title="Capture Kit" name="selectKit" data-actions-box="true" data-selected-text-format="count > 2" style=" text-align: center; margin: 0 auto;" data-width="55%" multiple data-max-options="20">
                             <!-- inserta dinamicamente option-->
-
+                                
                         </select>
 
                         <!-- boton input BED file -->
@@ -266,22 +290,27 @@
             </div>
         </div>
 
+        
+        
         <!-- boton launch procesar -->
         <div padding class="row " style="margin: 0 auto;padding:1em; max-width:420px; text-align: justify;display: flex;
         justify-content: center;">
-            <div id="btn-launch" onclick="url()" style=" padding-right:5px;width: 200px; float: left; margin:0 auto;" class="btn btn-success  btn-block"><span class="glyphicon glyphicon-play"></span>&nbsp;&nbsp;Launch</div>
+            <button id="btn-launch" disabled onClick="url()" style=" padding-right:5px;width: 200px; float: left; margin:0 auto;" class="btn btn-success  btn-block"><span class="glyphicon glyphicon-play"></span>&nbsp;&nbsp;Launch</button>
             <div disabled class="btn btn-secondary">&nbsp;</div>
-            <div id="btn-clean" onclick="clean()" style=" width:200px; float: left; color: aliceblue; margin: 0 auto; background-color: rgb(32, 32, 32);" class="btn btn-secondary btn-dark"><span class="glyphicon glyphicon-refresh"></span>&nbsp;&nbsp;Clean</div>
+            <button id="btn-clean" onclick="clean()" style=" width:200px; float: left; color: aliceblue; margin: 0 auto; background-color: rgb(32, 32, 32);" class="btn btn-secondary btn-dark"><span class="glyphicon glyphicon-refresh"></span>&nbsp;&nbsp;Clean</button>
         </div>
 
 
         <script>
+                
+           
+                
+           
             ///funcion btn cancelar ////
             function clean() {
 
                 document.getElementById("input-csv").value = "";
                 location.reload();
-
             }
 
             ////armar array con los kit seleccionados//////      
@@ -304,7 +333,8 @@
 
             ////armardo de la url con el id kit seleccionado y los valores genes////// 
             function url() {
-
+            
+                
                 var cadena = " cad en a DE text o ";
                 var cadena2 = cadena.replace(/\s/g, "");
                 console.log(cadena2 + "    pichi");

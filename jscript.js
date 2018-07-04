@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    
+    
+    
  
     ////////traer el json de kitnames/////////// 
         var ipServer = "10.100.100.55:8081";
@@ -51,7 +54,7 @@ $(document).ready(function () {
         });
     });*/
 
-    //// Leer un archivo TXT Local /////////
+    //// Leer un archivo TXT Local (usado para leer csv y bed en input)/////////
 
     function leerArchivo(e) {
         
