@@ -321,7 +321,7 @@
                 var selectValue = $("#selectKit").val();
                 //  $("#resultadoValue").text(selectValue);
                 // ver como queda el array de seleccionados final/////
-                console.log(selectValue);
+             //   console.log(selectValue);
                 array = selectValue;
 
                 /// Obtener el texto del las opciones selecionadas////
@@ -337,7 +337,7 @@
                 
                 var cadena = " cad en a DE text o ";
                 var cadena2 = cadena.replace(/\s/g, "");
-                console.log(cadena2 + "    pichi");
+               // console.log(cadena2 + "    pichi");
 
                 //////ejecutamos accion para poner el modal + pantalla block + spinner///////
                 modal.style.display = "block";
@@ -365,15 +365,15 @@
                 ///buscamos las propiedades de los genes seleccionados en la url resultado///
                 $.getJSON(urlProcesada, function(genesjson) {
 
-                    console.log("entro >>> " + genesjson[0]["genes"][0].symbol);
+               /*     console.log("entro >>> " + genesjson[0]["genes"][0].symbol);
                     console.log("longitud array KIT >>> " + genesjson.length);
-                    console.log("longitud array GENES >>> " + genesjson[0]["genes"].length);
+                    console.log("longitud array GENES >>> " + genesjson[0]["genes"].length);*/
        
                     ////recorremos para buscar el KIT////
                     for (k = 0; k < genesjson.length; k++) {
 
                         var kitname = genesjson[k].name;
-                        console.log("KITNAME : " + kitname);
+                      //  console.log("KITNAME : " + kitname);
 
                         var tabla = document.getElementById("contenidoTabla");
                         var fila = document.createElement("tr")
@@ -405,28 +405,28 @@
                     tabla2.appendChild(thead1);*/
                 ///fin cabecera////
                         ///subrecorrido para encontrar los genes dentro de ese kit de cover//////
-                        console.log("GENES DENTRO DEL KIT :  " + genesjson[k]["genes"].length);
+                       // console.log("GENES DENTRO DEL KIT :  " + genesjson[k]["genes"].length);
 
                         for (g = 0; g < genesjson[k]["genes"].length; g++) {
 
-                            console.log(genesjson[k]["genes"][g].symbol);
+                           // console.log(genesjson[k]["genes"][g].symbol);
                             var symbol = genesjson[k]["genes"][g].symbol;
 
-                            console.log(genesjson[k]["genes"][g].coverageCDS);
+                        //    console.log(genesjson[k]["genes"][g].coverageCDS);
                             var coverageCDS = genesjson[k]["genes"][g].coverageCDS;
                             coverageCDS = (coverageCDS * 100).toFixed(1) + "%";
 
-                            console.log(genesjson[k]["genes"][g].coverageCDSUTR);
+                          //  console.log(genesjson[k]["genes"][g].coverageCDSUTR);
                             var coverageCDSUTR = genesjson[k]["genes"][g].coverageCDSUTR;
                             coverageCDSUTR = (coverageCDSUTR * 100).toFixed(1) + "%";
 
-                            console.log(genesjson[k]["genes"][g].pathogenicVariants);
+                    //        console.log(genesjson[k]["genes"][g].pathogenicVariants);
                             var pathogenicVariants = genesjson[k]["genes"][g].pathogenicVariants;
 
-                            console.log(genesjson[k]["genes"][g].pathogenicVariantsCover);
+                      //      console.log(genesjson[k]["genes"][g].pathogenicVariantsCover);
                             var pathogenicVariantsCover = genesjson[k]["genes"][g].pathogenicVariantsCover;
 
-                            console.log(genesjson[k]["genes"][g].variantNotCovered);
+                        //    console.log(genesjson[k]["genes"][g].variantNotCovered);
                             var variantNotCovered2 = genesjson[k]["genes"][g].variantNotCovered;
                             ///validamos que si es null que dibuje cero///
                             if(variantNotCovered2 == ""){
@@ -434,7 +434,7 @@
                             }else{
                                 var variantNotCovered = variantNotCovered2};
 
-                            console.log(genesjson[k]["genes"][g].synonyms);
+                    //        console.log(genesjson[k]["genes"][g].synonyms);
                             var synonyms = genesjson[k]["genes"][g].synonyms;
 
                             /////////traemos la tabla y creamos las celdas//////////

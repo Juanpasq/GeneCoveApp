@@ -17,7 +17,7 @@ $(document).ready(function () {
                         //obtenemos el valor de la option para poderlo meter en el array de preseleccion///
                         option.value = valorKitname;
                         x.appendChild(option);
-                        console.log("ID - " + valorKitname + " >  Kitname - " + kitname);
+                       // console.log("ID - " + valorKitname + " >  Kitname - " + kitname);
 
                     } 
                 });
@@ -74,7 +74,7 @@ $(document).ready(function () {
     function mostrarContenido(contenido) {
         var elemento = document.getElementById('input-csv');
         elemento.innerHTML = contenido;
-        alert("File content:  " + contenido);
+    //    alert("File content:  " + contenido);
         document.getElementById('input-csv').value = contenido;
 
     }
