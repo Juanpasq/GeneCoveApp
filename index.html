@@ -40,14 +40,13 @@
 
         }
 
-
-        .table-responsive {
+     /*   .table-responsive {
 
             @include media-breakpoint-up(md) {
                 display: table;
                 
             }
-        }
+        } */
 
         /**tabla de datos procesados**/
 
@@ -61,7 +60,6 @@
             align-items: center;
         }
 
-
         th {
 
             margin: 0 auto;
@@ -70,7 +68,7 @@
         td {
 
             text-align: justify;
-            max-width: 300px;
+            max-width: 280px;
             overflow: hidden;
             white-space: nowrap;
         }
@@ -80,10 +78,9 @@
         }
 
         /*+++loader css++++++*/
-
         .loader {
 
-            border: 10px solid #f3f3f3;
+            border: 10px solid #181515;
             border-radius: 50%;
             border-top: 10px solid #2DA14D;
             width: 50px;
@@ -120,7 +117,7 @@
 
         .modal {
             margin: auto;
-            display: ;
+           /* display: ;*/
             /* Hidden by default */
             z-index: 3;
             /* Sit on top */
@@ -148,22 +145,6 @@
             padding: 20px;
             text-align: center;
             width: 80%;
-        }
-
-        /* The Close Button */
-
-        .close {
-            color: #aaaaaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: transparent;
-            text-decoration: none;
-            cursor: pointer;
         }
 
     </style>
@@ -258,30 +239,6 @@
             <script>
                 // Get the modal
                 var modal = document.getElementById('myModal');
-
-                // Get the button that opens the modal
-                var btn = document.getElementById("myBtn");
-
-                // Get the <span> element that closes the modal
-                var span = document.getElementsByClassName("close")[0];
-
-
-                // When the user clicks the button, open the modal 
-                btn.onclick = function() {
-                    modal.style.display = "block";
-                }
-
-                // When the user clicks on <span> (x), close the modal
-                span.onclick = function() {
-                    modal.style.display = "none";
-                }
-
-                // When the user clicks anywhere outside of the modal, close it
-                window.onclick = function(event) {
-                    if (event.target == modal) {
-                        modal.style.display = "none";
-                    }
-                }
 
             </script>
             <!--Fin de modulo spinner + modal -->
@@ -381,9 +338,8 @@
                     console.log("entro >>> " + genesjson[0]["genes"][0].symbol);
                     console.log("longitud array KIT >>> " + genesjson.length);
                     console.log("longitud array GENES >>> " + genesjson[0]["genes"].length);
-
+       
                     ////recorremos para buscar el KIT////
-
                     for (k = 0; k < genesjson.length; k++) {
 
                         var kitname = genesjson[k].name;
@@ -406,8 +362,19 @@
                         fila.appendChild(row);
                         tabla.appendChild(fila);
 
-                        ///subrecorrido para encontrar los genes dentro de ese kit de cover//////
+             //// prueba agregar cabecera////
+                  /*  var tabla2 = document.getElementById("tabla");
+                    var col1 = document.createTextNode("CDSPS");
 
+                    var th1 = document.createElement("th");
+                    var tr1 = document.createElement("th");
+                    var thead1 = document.createElement("thead");
+                    th1.appendChild(col1);
+                    tr1.appendChild(th1);
+                    thead1.appendChild(tr1);
+                    tabla2.appendChild(thead1);*/
+                ///fin cabecera////
+                        ///subrecorrido para encontrar los genes dentro de ese kit de cover//////
                         console.log("GENES DENTRO DEL KIT :  " + genesjson[k]["genes"].length);
 
                         for (g = 0; g < genesjson[k]["genes"].length; g++) {
@@ -417,13 +384,11 @@
 
                             console.log(genesjson[k]["genes"][g].coverageCDS);
                             var coverageCDS = genesjson[k]["genes"][g].coverageCDS;
-                            coverageCDS = (coverageCDS * 100) + "%";
+                            coverageCDS = (coverageCDS * 100).toFixed(1) + "%";
 
                             console.log(genesjson[k]["genes"][g].coverageCDSUTR);
                             var coverageCDSUTR = genesjson[k]["genes"][g].coverageCDSUTR;
-                            coverageCDSUTR = (coverageCDSUTR * 100) + "%";
-
-
+                            coverageCDSUTR = (coverageCDSUTR * 100).toFixed(1) + "%";
 
                             console.log(genesjson[k]["genes"][g].pathogenicVariants);
                             var pathogenicVariants = genesjson[k]["genes"][g].pathogenicVariants;
@@ -432,7 +397,12 @@
                             var pathogenicVariantsCover = genesjson[k]["genes"][g].pathogenicVariantsCover;
 
                             console.log(genesjson[k]["genes"][g].variantNotCovered);
-                            var variantNotCovered = genesjson[k]["genes"][g].variantNotCovered;
+                            var variantNotCovered2 = genesjson[k]["genes"][g].variantNotCovered;
+                            ///validamos que si es null que dibuje cero///
+                            if(variantNotCovered2 == ""){
+                                var variantNotCovered = "0";
+                            }else{
+                                var variantNotCovered = variantNotCovered2};
 
                             console.log(genesjson[k]["genes"][g].synonyms);
                             var synonyms = genesjson[k]["genes"][g].synonyms;
@@ -499,10 +469,12 @@
                             tabla.appendChild(fila);
 
                             ///FIN traemos la tabla y creamos las celdas///
-
+                            
+                            ///mostramos la tabla al finalizar la obtencion de datos///
                             var divTabla = document.getElementById("divTabla");
                             divTabla.style.display = "block";
-
+                            
+                            //////// sacamos el spinner con el modal screen////////////
                             var modal = document.getElementById('myModal');
                             modal.style.display = "none";
                         }
@@ -535,7 +507,7 @@
                 <span class="glyphicon glyphicon-floppy-save"></span> Download to .csv file</a>
             <p></p>
             <table class="table" id="tabla" style="align-items: center">
-                <thead style="background-color: #2D2A2F; color: antiquewhite; margin: 0 auto">
+                <thead style="background-color: #2D2A2F; color: antiquewhite; margin: 0 auto; ">
                     <tr style="margin: 0 auto">
                         <th>Symbol</th>
                         <th>CovCDS</th>
@@ -555,9 +527,7 @@
                         </tr> -->
                 </tbody>
             </table>
-
         </div>
-
 
         <script>
             /////2 funciones para generar el csv y descarga////////////
@@ -606,9 +576,7 @@
                 // Download CSV file
                 downloadCSV(csv.join("\n"), filename);
             }
-
-            //////fin de 2 funciones para csv//////////////////
-
+        //////fin de 2 funciones para csv//////////////////
         </script>
 
         <!--

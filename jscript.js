@@ -32,7 +32,7 @@ $(document).ready(function () {
                     mySelect.selectpicker('render');
                     
                });
-       
+               
     ////// funcion para leer un archivo via remoto http ////////
 
    /* $(function () {
@@ -80,6 +80,7 @@ $(document).ready(function () {
         .addEventListener('change', leerArchivo, false);
 
     ////////////////////////////////////////////////////
+
 
 }); ////cierre documentReady////////
 
