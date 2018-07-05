@@ -40,7 +40,7 @@
 
         }
 
-        /*   .table-responsive {
+     /*   .table-responsive {
 
             @include media-breakpoint-up(md) {
                 display: table;
@@ -77,12 +77,7 @@
             overflow-x: visible;
         }
 
-        alert {
-            background-color: aqua;
-        }
-
         /*+++loader css++++++*/
-
         .loader {
 
             border: 10px solid #181515;
@@ -122,7 +117,7 @@
 
         .modal {
             margin: auto;
-            /* display: ;*/
+           /* display: ;*/
             /* Hidden by default */
             z-index: 3;
             /* Sit on top */
@@ -153,10 +148,34 @@
         }
 
     </style>
+    
+    <script>
+        
+       /* function onload(){
+            
+          
+            var inpGen = document.getElementById("input-csv");
+            var inpKit = document.getElementById("selectKit");
+                
+                if( inpGen.value == ""){ 
+                    
+                    alert("sfdsafds");
+                    console.log("cerrado");
+                    document.getElementById("btn-launch").disabled = true;
+                    
+                }else{ 
+                    
+                    document.getElementById("btn-launch").disabled = false;}
+    
+                }/*
+    </script>
 
 </head>
 
-<body>
+<body onload="btnDisabled()">
+    
+    
+    
 
     <!-- NavBar -->
     <nav class="navbar navbar-inverse" style="border-radius:0px;">
@@ -209,7 +228,7 @@
                         <span class="form-control-clear glyphicon glyphicon-remove form-control-feedback hidden"></span>
                         <!--boton upload file-->
                         <div class="input-group-btn">
-                            <label data-toggle="tooltip" data-placement="right" title="Upload .csv file" class="btn" id="btn-csv" style="background-color: rgb(32, 32, 32); color: aliceblue;">
+                            <label class="btn" id="btn-csv" style="background-color: rgb(32, 32, 32); color: aliceblue;">
                                 CSV&nbsp;
                                 <i class="fas fa-upload"></i>
                                 <input type="file" id="file-input" accept=".csv" style="display: none;">
@@ -229,11 +248,6 @@
                 <span>134</span>
             </p>
             <br>
-
-            <div class="alert alert-danger alert-dismissible" style="display: none" id="alertGen">
-                <a href="#" class="close" onclick="closeAlerGen()">&times;</a>
-                <strong>Error.</strong> Please, insert Gene code.
-            </div>
 
             <!-- modulo de modal + spinner -->
             <div id="myModal" class="modal">
@@ -257,14 +271,14 @@
             <div class="row" id="adv-search">
                 <div class="col-md-12">
                     <div class="input-group" id="btn-render">
-                        <select id="selectKit" class="selectpicker" multiple title="Select capture Kit" name="selectKit" data-actions-box="true" data-selected-text-format="count > 2" style=" text-align: center; margin: 0 auto;" data-width="55%" multiple data-max-options="20">
+                        <select id="selectKit" class="selectpicker" multiple title="Capture Kit" name="selectKit" data-actions-box="true" data-selected-text-format="count > 2" style=" text-align: center; margin: 0 auto;" data-width="55%" multiple data-max-options="20">
                             <!-- inserta dinamicamente option-->
                                 
                         </select>
 
                         <!-- boton input BED file -->
                         <div class="input-group-btn">
-                            <label data-toggle="tooltip" data-placement="right" title="Upload .bed file" class="btn" id="btn-bed" style="background-color: rgb(32, 32, 32); color:aliceblue">
+                            <label class="btn" id="btn-bed" style="background-color: rgb(32, 32, 32); color:aliceblue">
                                 BED&nbsp;
                                 <i class="fas fa-upload"></i>
                                 <input type="file" accept=".bed" style="display: none;" id="input-bed">
@@ -273,24 +287,25 @@
 
                     </div>
                 </div>
-            </div><br>
-
-            <div class="alert alert-danger alert-dismissible" style="display: none" id="alertKit">
-                <a href="#" class="close" onclick="closeAlerKit()" aria-label="close">&times;</a>
-                <strong>Error.</strong> Please, select Kitname coverage.
             </div>
-
         </div>
 
+        
+        
         <!-- boton launch procesar -->
         <div padding class="row " style="margin: 0 auto;padding:1em; max-width:420px; text-align: justify;display: flex;
         justify-content: center;">
-            <button id="btn-launch" onclick="url()" style="width: 200px; float: left; margin:0 auto;" class="btn btn-success  btn-block"><span class="glyphicon glyphicon-play"></span>&nbsp;&nbsp;Launch</button>
+            <button id="btn-launch" onClick="url()" style=" padding-right:5px;width: 200px; float: left; margin:0 auto;" class="btn btn-success  btn-block"><span class="glyphicon glyphicon-play"></span>&nbsp;&nbsp;Launch</button>
             <div disabled class="btn btn-secondary">&nbsp;</div>
             <button id="btn-clean" onclick="clean()" style=" width:200px; float: left; color: aliceblue; margin: 0 auto; background-color: rgb(32, 32, 32);" class="btn btn-secondary btn-dark"><span class="glyphicon glyphicon-refresh"></span>&nbsp;&nbsp;Clean</button>
         </div>
 
+
         <script>
+                
+           
+                
+           
             ///funcion btn cancelar ////
             function clean() {
 
@@ -306,7 +321,7 @@
                 var selectValue = $("#selectKit").val();
                 //  $("#resultadoValue").text(selectValue);
                 // ver como queda el array de seleccionados final/////
-                //   console.log(selectValue);
+             //   console.log(selectValue);
                 array = selectValue;
 
                 /// Obtener el texto del las opciones selecionadas////
@@ -318,209 +333,184 @@
 
             ////armardo de la url con el id kit seleccionado y los valores genes////// 
             function url() {
+            
+                
+                var cadena = " cad en a DE text o ";
+                var cadena2 = cadena.replace(/\s/g, "");
+               // console.log(cadena2 + "    pichi");
+
+                //////ejecutamos accion para poner el modal + pantalla block + spinner///////
+                modal.style.display = "block";
+
+                ////////IP SERVER////////////////
+                var ipServer = "10.100.100.55:8081";
+
+                var kitsSeleccionados = array.toString();
+
+                //////traemos los valores de los genes introducidos en el input/////////
+                var csvValues = document.getElementById('input-csv').value;
+                csvValues = csvValues.split(",");
+                // csvValues = csvValues.toString();
+                //      console.log("CSV"+csvValues);
+                //        var csvValues2 = csvValues.replace(/\s/g,""));
+                //    console.log(csvValues2+"añslkdfj");
+                console.log("http://" + ipServer + "/genecovapp/getGeneStats/" + kitsSeleccionados + "/" + csvValues + "");
+                //window.open("http://"+ipServer+"/genecovapp/getGeneStats/" + kitsSeleccionados + "/" + csvValues + "");                  
+                //window.open("tabla.html");
 
 
-                //////validamos que no esten vacios los campos de ingreso////////
-                var inpGen = document.getElementById("input-csv");
-                var inpKit = document.getElementById("selectKit");
+                /////armamos una variable para traer el archivo json/////
+                var urlProcesada = "http://" + ipServer + "/genecovapp/getGeneStats/" + kitsSeleccionados + "/" + csvValues + "";
 
-                if (inpGen.value == "") {
+                ///buscamos las propiedades de los genes seleccionados en la url resultado///
+                $.getJSON(urlProcesada, function(genesjson) {
 
-                    //    alert("Please insert Gene code");
-                    var errorGen = document.getElementById("alertGen");
-                    errorGen.style.display = "block";
+               /*     console.log("entro >>> " + genesjson[0]["genes"][0].symbol);
+                    console.log("longitud array KIT >>> " + genesjson.length);
+                    console.log("longitud array GENES >>> " + genesjson[0]["genes"].length);*/
+       
+                    ////recorremos para buscar el KIT////
+                    for (k = 0; k < genesjson.length; k++) {
 
+                        var kitname = genesjson[k].name;
+                      //  console.log("KITNAME : " + kitname);
 
-                } else if (inpKit.value == "") {
+                        var tabla = document.getElementById("contenidoTabla");
+                        var fila = document.createElement("tr")
+                        var row = document.createElement("th");
+                        var celda = document.createElement("td");
+                        row.setAttribute("colSpan", "7");
+                        row.setAttribute("align", "center");
+                        row.setAttribute("style", "background-color: #A91640;");
+                        row.style.color = '#F7F4F3';
+                        row.style.margin = "0 auto";
 
-                    //    alert("Please select Kitname coverage");
-                    var errorKit = document.getElementById("alertKit");
-                    errorKit.style.display = "block";
+                        var texto = document.createTextNode(kitname);
 
-                } else {
+                        celda.appendChild(texto);
+                        row.appendChild(celda);
+                        fila.appendChild(row);
+                        tabla.appendChild(fila);
 
-                    //////ejecutamos accion para poner el modal + pantalla block + spinner///////
-                    modal.style.display = "block";
+             //// prueba agregar cabecera////
+                  /*  var tabla2 = document.getElementById("tabla");
+                    var col1 = document.createTextNode("CDSPS");
 
-                    ////////IP SERVER////////////////
-                    var ipServer = "10.100.100.55:8081";
+                    var th1 = document.createElement("th");
+                    var tr1 = document.createElement("th");
+                    var thead1 = document.createElement("thead");
+                    th1.appendChild(col1);
+                    tr1.appendChild(th1);
+                    thead1.appendChild(tr1);
+                    tabla2.appendChild(thead1);*/
+                ///fin cabecera////
+                        ///subrecorrido para encontrar los genes dentro de ese kit de cover//////
+                       // console.log("GENES DENTRO DEL KIT :  " + genesjson[k]["genes"].length);
 
-                    var kitsSeleccionados = array.toString();
+                        for (g = 0; g < genesjson[k]["genes"].length; g++) {
 
-                    //////traemos los valores de los genes introducidos en el input/////////
-                    var csvValues = document.getElementById('input-csv').value;
-                    csvValues = csvValues.split(",");
-                    // csvValues = csvValues.toString();
-                    // console.log("CSV"+csvValues);
-                    // var csvValues2 = csvValues.replace(/\s/g,""));
-                    // console.log(csvValues2+"añslkdfj");
-                    console.log("http://" + ipServer + "/genecovapp/getGeneStats/" + kitsSeleccionados + "/" + csvValues + "");
-                    //window.open("http://"+ipServer+"/genecovapp/getGeneStats/" + kitsSeleccionados + "/" + csvValues + "");                  
-                    //window.open("tabla.html");
+                           // console.log(genesjson[k]["genes"][g].symbol);
+                            var symbol = genesjson[k]["genes"][g].symbol;
 
+                        //    console.log(genesjson[k]["genes"][g].coverageCDS);
+                            var coverageCDS = genesjson[k]["genes"][g].coverageCDS;
+                            coverageCDS = (coverageCDS * 100).toFixed(1) + "%";
 
-                    /////armamos una variable para traer el archivo json/////
-                    var urlProcesada = "http://" + ipServer + "/genecovapp/getGeneStats/" + kitsSeleccionados + "/" + csvValues + "";
+                          //  console.log(genesjson[k]["genes"][g].coverageCDSUTR);
+                            var coverageCDSUTR = genesjson[k]["genes"][g].coverageCDSUTR;
+                            coverageCDSUTR = (coverageCDSUTR * 100).toFixed(1) + "%";
 
-                    ///buscamos las propiedades de los genes seleccionados en la url resultado///
-                    $.getJSON(urlProcesada, function(genesjson) {
+                    //        console.log(genesjson[k]["genes"][g].pathogenicVariants);
+                            var pathogenicVariants = genesjson[k]["genes"][g].pathogenicVariants;
 
-                        /*   console.log("entro >>> " + genesjson[0]["genes"][0].symbol);
-                             console.log("longitud array KIT >>> " + genesjson.length);
-                             console.log("longitud array GENES >>> " + genesjson[0]["genes"].length);*/
+                      //      console.log(genesjson[k]["genes"][g].pathogenicVariantsCover);
+                            var pathogenicVariantsCover = genesjson[k]["genes"][g].pathogenicVariantsCover;
 
-                        ////recorremos para buscar el KIT////
-                        for (k = 0; k < genesjson.length; k++) {
+                        //    console.log(genesjson[k]["genes"][g].variantNotCovered);
+                            var variantNotCovered2 = genesjson[k]["genes"][g].variantNotCovered;
+                            ///validamos que si es null que dibuje cero///
+                            if(variantNotCovered2 == ""){
+                                var variantNotCovered = "0";
+                            }else{
+                                var variantNotCovered = variantNotCovered2};
 
-                            var kitname = genesjson[k].name;
-                            //  console.log("KITNAME : " + kitname);
+                    //        console.log(genesjson[k]["genes"][g].synonyms);
+                            var synonyms = genesjson[k]["genes"][g].synonyms;
 
+                            /////////traemos la tabla y creamos las celdas//////////
                             var tabla = document.getElementById("contenidoTabla");
+
+                            //una fila//
                             var fila = document.createElement("tr")
+
+                            //por cada celda una col (cada th hay un td) = 7//
                             var row = document.createElement("th");
-                            var celda = document.createElement("td");
-                            row.setAttribute("colSpan", "7");
-                            row.setAttribute("align", "center");
-                            row.setAttribute("style", "background-color: #A91640;");
-                            row.style.color = '#F7F4F3';
-                            row.style.margin = "0 auto";
+                            var row2 = document.createElement("th");
+                            var row3 = document.createElement("th");
+                            var row4 = document.createElement("th");
+                            var row5 = document.createElement("th");
+                            var row6 = document.createElement("th");
+                            var row7 = document.createElement("th");
 
-                            var texto = document.createTextNode(kitname);
+                            var celda1 = document.createElement("td");
+                            var celda2 = document.createElement("td");
+                            var celda3 = document.createElement("td");
 
-                            celda.appendChild(texto);
-                            row.appendChild(celda);
+                            celda3.style.textAlign = "center";
+                            var celda4 = document.createElement("td");
+                            var celda5 = document.createElement("td");
+                            var celda6 = document.createElement("td");
+                            var celda7 = document.createElement("td");
+
+                            //textos de las 7 celdas//
+                            var texto1 = document.createTextNode(symbol);
+                            var texto2 = document.createTextNode(coverageCDS);
+                            var texto3 = document.createTextNode(coverageCDSUTR);
+                            var texto4 = document.createTextNode(pathogenicVariants);
+                            var texto5 = document.createTextNode(pathogenicVariantsCover);
+                            var texto6 = document.createTextNode(variantNotCovered);
+                            var texto7 = document.createTextNode(synonyms);
+
+                            //pegamos los componentes a sus padres//
+                            celda1.appendChild(texto1);
+                            celda2.appendChild(texto2);
+                            celda3.appendChild(texto3);
+                            celda4.appendChild(texto4);
+                            celda5.appendChild(texto5);
+                            celda6.appendChild(texto6);
+                            celda7.appendChild(texto7);
+
+                            row.appendChild(celda1);
+                            row2.appendChild(celda2);
+                            row3.appendChild(celda3);
+                            row4.appendChild(celda4);
+                            row5.appendChild(celda5);
+                            row6.appendChild(celda6);
+                            row7.appendChild(celda7);
+
                             fila.appendChild(row);
+                            fila.appendChild(row2);
+                            fila.appendChild(row3);
+                            fila.appendChild(row4);
+                            fila.appendChild(row5);
+                            fila.appendChild(row6);
+                            fila.appendChild(row7);
+
                             tabla.appendChild(fila);
 
-                            //// prueba agregar cabecera////
-                            /*  var tabla2 = document.getElementById("tabla");
-                              var col1 = document.createTextNode("CDSPS");
-
-                              var th1 = document.createElement("th");
-                              var tr1 = document.createElement("th");
-                              var thead1 = document.createElement("thead");
-                              th1.appendChild(col1);
-                              tr1.appendChild(th1);
-                              thead1.appendChild(tr1);
-                              tabla2.appendChild(thead1);*/
-                            ///fin cabecera////
+                            ///FIN traemos la tabla y creamos las celdas///
                             
-                            ///subrecorrido para encontrar los genes dentro de ese kit de cover//////
-                            // console.log("GENES DENTRO DEL KIT :  " + genesjson[k]["genes"].length);
-
-                            for (g = 0; g < genesjson[k]["genes"].length; g++) {
-
-                                // console.log(genesjson[k]["genes"][g].symbol);
-                                var symbol = genesjson[k]["genes"][g].symbol;
-
-                                //    console.log(genesjson[k]["genes"][g].coverageCDS);
-                                var coverageCDS = genesjson[k]["genes"][g].coverageCDS;
-                                coverageCDS = (coverageCDS * 100).toFixed(1) + "%";
-
-                                //  console.log(genesjson[k]["genes"][g].coverageCDSUTR);
-                                var coverageCDSUTR = genesjson[k]["genes"][g].coverageCDSUTR;
-                                coverageCDSUTR = (coverageCDSUTR * 100).toFixed(1) + "%";
-
-                                //        console.log(genesjson[k]["genes"][g].pathogenicVariants);
-                                var pathogenicVariants = genesjson[k]["genes"][g].pathogenicVariants;
-
-                                //      console.log(genesjson[k]["genes"][g].pathogenicVariantsCover);
-                                var pathogenicVariantsCover = genesjson[k]["genes"][g].pathogenicVariantsCover;
-
-                                //    console.log(genesjson[k]["genes"][g].variantNotCovered);
-                                var variantNotCovered2 = genesjson[k]["genes"][g].variantNotCovered;
-                                ///validamos que si es null que dibuje cero///
-                                if (variantNotCovered2 == "") {
-                                    var variantNotCovered = "0";
-                                } else {
-                                    var variantNotCovered = variantNotCovered2
-                                };
-
-                                //        console.log(genesjson[k]["genes"][g].synonyms);
-                                var synonyms = genesjson[k]["genes"][g].synonyms;
-
-                                /////////traemos la tabla y creamos las celdas//////////
-                                var tabla = document.getElementById("contenidoTabla");
-
-                                //una fila//
-                                var fila = document.createElement("tr")
-
-                                //por cada celda una col (cada th hay un td) = 7//
-                                var row = document.createElement("th");
-                                var row2 = document.createElement("th");
-                                var row3 = document.createElement("th");
-                                var row4 = document.createElement("th");
-                                var row5 = document.createElement("th");
-                                var row6 = document.createElement("th");
-                                var row7 = document.createElement("th");
-
-                                var celda1 = document.createElement("td");
-                                var celda2 = document.createElement("td");
-                                var celda3 = document.createElement("td");
-
-                                celda3.style.textAlign = "center";
-                                var celda4 = document.createElement("td");
-                                var celda5 = document.createElement("td");
-                                var celda6 = document.createElement("td");
-                                var celda7 = document.createElement("td");
-
-                                //textos de las 7 celdas//
-                                var texto1 = document.createTextNode(symbol);
-                                var texto2 = document.createTextNode(coverageCDS);
-                                var texto3 = document.createTextNode(coverageCDSUTR);
-                                var texto4 = document.createTextNode(pathogenicVariants);
-                                var texto5 = document.createTextNode(pathogenicVariantsCover);
-                                var texto6 = document.createTextNode(variantNotCovered);
-                                var texto7 = document.createTextNode(synonyms);
-
-                                //pegamos los componentes a sus padres//
-                                celda1.appendChild(texto1);
-                                celda2.appendChild(texto2);
-                                celda3.appendChild(texto3);
-                                celda4.appendChild(texto4);
-                                celda5.appendChild(texto5);
-                                celda6.appendChild(texto6);
-                                celda7.appendChild(texto7);
-
-                                row.appendChild(celda1);
-                                row2.appendChild(celda2);
-                                row3.appendChild(celda3);
-                                row4.appendChild(celda4);
-                                row5.appendChild(celda5);
-                                row6.appendChild(celda6);
-                                row7.appendChild(celda7);
-
-                                fila.appendChild(row);
-                                fila.appendChild(row2);
-                                fila.appendChild(row3);
-                                fila.appendChild(row4);
-                                fila.appendChild(row5);
-                                fila.appendChild(row6);
-                                fila.appendChild(row7);
-
-                                tabla.appendChild(fila);
-
-                                ///FIN traemos la tabla y creamos las celdas///
-
-                                ///mostramos la tabla al finalizar la obtencion de datos///
-                                var divTabla = document.getElementById("divTabla");
-                                divTabla.style.display = "block";
-
-                                //////// sacamos el spinner con el modal screen////////////
-                                var modal = document.getElementById('myModal');
-                                modal.style.display = "none";
-
-                                ////////////cerramos los alert de los inpt/////////////////
-                                var a = document.getElementById("alertGen");
-                                a.style.display = "none";
-
-                                var b = document.getElementById("alertKit");
-                                b.style.display = "none";
-                            }
+                            ///mostramos la tabla al finalizar la obtencion de datos///
+                            var divTabla = document.getElementById("divTabla");
+                            divTabla.style.display = "block";
+                            
+                            //////// sacamos el spinner con el modal screen////////////
+                            var modal = document.getElementById('myModal');
+                            modal.style.display = "none";
                         }
+                    }
 
-                    });
-                }
+                });
             }
 
         </script>
@@ -570,7 +560,6 @@
         </div>
 
         <script>
-            
             /////2 funciones para generar el csv y descarga////////////
             function downloadCSV(csv, filename) {
                 var csvFile;
@@ -617,8 +606,7 @@
                 // Download CSV file
                 downloadCSV(csv.join("\n"), filename);
             }
-            //////fin de 2 funciones para csv//////////////////
-
+        //////fin de 2 funciones para csv//////////////////
         </script>
 
         <!--
