@@ -46,8 +46,12 @@
         }
 
         caption{
-            margin-left:0.5em;          
-            font-size: 1.2em;
+            
+            background-color:#CB342A  ;
+            color: cornsilk;
+            Padding-left:0.5em;          
+            font-size: 1em;
+            font-weight: bold;
         }
 
         /**tabla de datos procesados**/
@@ -315,7 +319,7 @@
         <script>
             function sortTable() {
                 var table, rows, switching, i, x, y, shouldSwitch;
-                table = document.getElementById("table");
+                table = document.getElementById("contenedorTabla");
                 switching = true;
                 /*Make a loop that will continue until
                 no switching has been done:*/
@@ -667,7 +671,7 @@
                 <span class="glyphicon glyphicon-floppy-save"></span> Download to .csv file</a>
             <p></p>
 
-        <div id="contenedorTabla" class="table-responsive">
+        <div onclick="sortTable()" id="contenedorTabla" class="table-responsive">
 
         </div>
 
