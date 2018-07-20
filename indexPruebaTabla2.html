@@ -513,16 +513,18 @@
                                 a.style.display = "none";
                                 var b = document.getElementById("alertKit");
                                 b.style.display = "none";
+                                
+                                //////escondemos la parte superior para subir la tabla//////
+                                var containerBusqueda = document.getElementById("containerBusqueda");
+                                containerBusqueda.style.display = "none";         
+                                
+                                
                             }
                         }
                     });
 
-                } ////////
+                } sortTable(idTablaString);
 
-                var containerBusqueda = document.getElementById("containerBusqueda");
-                containerBusqueda.style.display = "none";
-
-                ////////
             }
 
         </script>
@@ -584,7 +586,7 @@
             <a onclick="exportTableToCSV('genecove.csv')" href="#" class="btn btn-block btn-default">
                 <span class="glyphicon glyphicon-floppy-save"></span>&nbsp;&nbsp;Download to .csv file</a>
 
-            <a href="index.html" target="_blank" class="btn btn-block btn-default">
+            <a href="indexPruebaTabla2.html" target="_blank" class="btn btn-block btn-default">
                 <span class="glyphicon glyphicon-repeat" ></span>&nbsp;&nbsp;New search</a>
 
             <p></p>
@@ -592,7 +594,6 @@
         </div>
 
     </div>
-
 
     <script>
         //////////codigo ordenamiento tabla////////////////////
