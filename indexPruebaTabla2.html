@@ -501,6 +501,7 @@
                                 div.classList.add("table-responsive");
 
                                 tablaGeneral.appendChild(div);
+                               
                                 ///FIN traemos la tabla y creamos las celdas///
                                 ///mostramos la tabla al finalizar la obtencion de datos///
                                 var divTabla = document.getElementById("divTabla");
@@ -516,8 +517,8 @@
                                 
                                 //////escondemos la parte superior para subir la tabla//////
                                 var containerBusqueda = document.getElementById("containerBusqueda");
-                                containerBusqueda.style.display = "none";                             
-                               
+                                containerBusqueda.style.display = "none";
+                                
                             }
                         }
                     });
@@ -573,11 +574,11 @@
 
         <div style="display:none" id="divTabla" style="border: none;">
 
-            <a onclick="exportTableToCSV('genecove.csv')" href="#" class="btn btn-block btn-default">
+            <a onclick="exportTableToCSV('genecove.csv')" href="#" class="btn btn-block btn-default" >
                 <span class="glyphicon glyphicon-floppy-save"></span>&nbsp;&nbsp;Download to .csv file</a>
 
-            <a href="index.html" target="_blank" class="btn btn-block btn-default ">
-                <span class="glyphicon glyphicon-repeat" ></span>&nbsp;&nbsp;New search</a>
+            <a href="index.html" target="_blank" class="btn btn-block btn-default " >
+                <span class="glyphicon glyphicon-plus" ></span>&nbsp;&nbsp;New search</a>
 
             <p></p>
 
