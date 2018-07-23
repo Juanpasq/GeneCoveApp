@@ -31,55 +31,40 @@
 
     <style>
         body {
-
             overflow: auto;
             font-family: 'Hind Madurai', sans-serif;
             font-size: 16px;
         }
-
         p {
             font-size: .9em;
             text-align: justify;
         }
-
-
         /**tabla de datos procesados**/
-
         thead {
-
             background-color: #242121;
             color: #D4D4D4;
         }
-
         table {
-
             width: 500px;
             margin: 0 auto;
             font-size: 0.85em;
             text-align: center;
             align-content: center;
             align-items: center;
-
         }
-
         th {
-
             margin: 0 auto;
         }
-
         td {
-
             text-align: justify;
             max-width: 200px;
             overflow: hidden;
             white-space: nowrap;
             padding: 10em;
         }
-
         td:hover {
             overflow-x: visible;
         }
-
         .kitnameRow {
             background-color: #ff4e58;
             color: cornsilk;
@@ -87,9 +72,7 @@
             font-size: 1em;
             font-weight: bold;
         }
-
         /*+++loader css++++++*/
-
         .loader {
             border: 10px solid #181515;
             border-radius: 50%;
@@ -103,9 +86,7 @@
             /* Safari */
             animation: spin 1.5s linear infinite;
         }
-
         /* Safari */
-
         @-webkit-keyframes spin {
             0% {
                 -webkit-transform: rotate(0deg);
@@ -114,7 +95,6 @@
                 -webkit-transform: rotate(360deg);
             }
         }
-
         @keyframes spin {
             0% {
                 transform: rotate(0deg);
@@ -123,16 +103,12 @@
                 transform: rotate(360deg);
             }
         }
-
         @media screen and (max-width: 767px) {
             .table-responsive {
-
                 border: none;
             }
         }
-
         /* The Modal (background) */
-
         .modal {
             margin: auto;
             /* display: ;*/
@@ -154,9 +130,7 @@
             background-color: rgba(0, 0, 0, 0.6);
             /* Black w/ opacity */
         }
-
         /* Modal Content */
-
         .modal-content {
             background-color: transparent;
             margin: auto;
@@ -164,11 +138,9 @@
             text-align: center;
             width: 80%;
         }
-
         tbody tr:nth-child(even) {
             background-color: #f2f2f2
         }
-
     </style>
 
 </head>
@@ -307,10 +279,8 @@
                 //   console.log(selectValue);
                 array = selectValue;
             });
-
             ////armardo de la url con el id kit seleccionado y los valores genes////// 
             function url() {
-
                 var idTabla = 0;
                 //////validamos que no esten vacios los campos de ingreso////////
                 var inpGen = document.getElementById("input-csv");
@@ -417,15 +387,31 @@
                             var tbody = document.createElement("tbody");
                             cabecera.appendChild(trKitname);
                             cabecera.appendChild(tr);
-
                             ////armamos la funcion click con forma de string para que lo pueda leer/////
                             idTabla++;
                             var idTablaString = "sortTable" + "(" + idTabla + ")";
                             idTablaString = String(idTablaString);
+                            
+                            var idTablaString2 = "sortTable2" + "(" + idTabla + ")";
+                            idTablaString2 = String(idTablaString2);
+                            
+                            var idTablaString3 = "sortTable3" + "(" + idTabla + ")";
+                            idTablaString3 = String(idTablaString3);
+                            
+                            th.setAttribute("onclick", idTablaString);
+                            th2.setAttribute("onclick", idTablaString2);
+                            th3.setAttribute("onclick", idTablaString3);
+                            
+                            
+                            th.setAttribute("mouseOver", idTablaString);
+                            th2.setAttribute("onclick", idTablaString2);
+                            th3.setAttribute("onclick", idTablaString3);
+                            
+                            
+                            
                             // console.log("ID TABLA PASADO A STRING PARA LA FUNCION ORDENAR : "+idTablaString)
-                            cabecera.setAttribute("onclick", idTablaString);
+                            //cabecera.setAttribute("onclick", idTablaString);
                             tabla.appendChild(cabecera);
-
                             ///subrecorrido para encontrar los genes dentro de ese kit de cover//////
                             // console.log("GENES DENTRO DEL KIT :  " + genesjson[k]["genes"].length);
                             for (g = 0; g < genesjson[k]["genes"].length; g++) {
@@ -496,10 +482,8 @@
                                 // tbody.setAttribute("id", "tbody")
                                 tabla.appendChild(tbody);
                                 tabla.setAttribute("id", idTabla);
-
                                 div.appendChild(tabla);
                                 div.classList.add("table-responsive");
-
                                 tablaGeneral.appendChild(div);
                                
                                 ///FIN traemos la tabla y creamos las celdas///
@@ -522,11 +506,8 @@
                             }
                         }
                     });
-
                 }
-
             }
-
         </script>
 
         <hr style="max-width: 770px;">
@@ -566,7 +547,6 @@
     <script>
         // Get the modal
         var modal = document.getElementById('myModal');
-
     </script>
     <!--Fin de modulo spinner + modal -->
 
@@ -589,7 +569,6 @@
     <script>
         //////////codigo ordenamiento tabla////////////////////
         function sortTable(idTabla) {
-
             var table, rows, switching, i, x, y, shouldSwitch;
             table = document.getElementById(idTabla);
             switching = true;
@@ -623,8 +602,79 @@
                 }
             }
         }
+        
+         //////////codigo ordenamiento cover ////////////////////
+        function sortTable2(idTabla) {
+            var table, rows, switching, i, x, y, shouldSwitch;
+            table = document.getElementById(idTabla);
+            switching = true;
+            /*Make a loop that will continue until
+            no switching has been done:*/
+            while (switching) {
+                //start by saying: no switching is done:
+                switching = false;
+                rows = table.getElementsByTagName("TR");
+                /*Loop through all table rows (except the
+                first, which contains table headers):*/
+                for (i = 2; i < (rows.length); i++) {
+                    //start by saying there should be no switching:
+                    shouldSwitch = false;
+                    /*Get the two elements you want to compare,
+                    one from current row and one from the next:*/
+                    x = rows[i].getElementsByTagName("TD")[1];
+                    y = rows[i + 1].getElementsByTagName("TD")[1];
+                    //check if the two rows should switch place:
+                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                        //if so, mark as a switch and break the loop:
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+                if (shouldSwitch) {
+                    /*If a switch has been marked, make the switch
+                    and mark that a switch has been done:*/
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                }
+            }
+        }
+        
+         //////////codigo ordenamiento cover crt////////////////////
+        function sortTable3(idTabla) {
+            var table, rows, switching, i, x, y, shouldSwitch;
+            table = document.getElementById(idTabla);
+            switching = true;
+            /*Make a loop that will continue until
+            no switching has been done:*/
+            while (switching) {
+                //start by saying: no switching is done:
+                switching = false;
+                rows = table.getElementsByTagName("TR");
+                /*Loop through all table rows (except the
+                first, which contains table headers):*/
+                for (i = 2; i < (rows.length); i++) {
+                    //start by saying there should be no switching:
+                    shouldSwitch = false;
+                    /*Get the two elements you want to compare,
+                    one from current row and one from the next:*/
+                    x = rows[i].getElementsByTagName("TD")[2];
+                    y = rows[i + 1].getElementsByTagName("TD")[2];
+                    //check if the two rows should switch place:
+                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                        //if so, mark as a switch and break the loop:
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+                if (shouldSwitch) {
+                    /*If a switch has been marked, make the switch
+                    and mark that a switch has been done:*/
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                }
+            }
+        }
         /////fin sortTable///////
-
         /////2 funciones para generar el csv y descarga////////////
         function downloadCSV(csv, filename) {
             var csvFile;
@@ -646,7 +696,6 @@
             // Click download link
             downloadLink.click();
         }
-
         function exportTableToCSV(filename) {
             var csv = [];
             var rows = document.querySelectorAll("table tr");
@@ -661,7 +710,6 @@
             downloadCSV(csv.join("\n"), filename);
         }
         //////fin de 2 funciones para csv//////////////////
-
     </script>
 
     <!-- file reader url externo template html que va con el script del js-->
