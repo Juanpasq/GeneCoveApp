@@ -1,3 +1,4 @@
+ 
 
 ////////botones close de alert /////////
 function closeAlerGen(){
@@ -14,7 +15,8 @@ function closeAlerKit(){
 
 
 $(document).ready(function () {
-
+    /* otra forma de traer y usar un tooltip
+    $('th').tooltip({title: "Click to sort", trigger: "hover"}); */
     ///toolip diseño globo///
     $('[data-toggle="tooltip"]').tooltip();   
 
@@ -97,8 +99,5 @@ $(document).ready(function () {
 
     document.getElementById('file-input')
         .addEventListener('change', leerArchivo, false);
-
-    ////////////////////////////////////////////////////
-
 
 }); ////cierre documentReady////////
