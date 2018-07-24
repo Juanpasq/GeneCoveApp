@@ -31,6 +31,9 @@
 
 
     <style>
+
+        tr,span {text-align: right;}
+
         body {
             overflow: auto;
             font-family: 'Hind Madurai', sans-serif;
@@ -360,9 +363,9 @@
                             var th8 = document.createElement("th");
                             th8.style.verticalAlign = "middle";
                             //////creamos los textos contenidos de cada celda cabecera//////////
-                            var texto1 = document.createTextNode("Symbol");
-                            var texto2 = document.createTextNode("Coding Region Coverage");
-                            var texto3 = document.createTextNode("Region Coverage UTR");
+                            var texto1 = document.createTextNode("Symbol   ");
+                            var texto2 = document.createTextNode("Coding Region Coverage   ");
+                            var texto3 = document.createTextNode("Region Coverage UTR   ");
                             var texto4 = document.createTextNode("Pathogenic variants");
                             var texto5 = document.createTextNode("Covered Pathogenic variants");
                             var texto6 = document.createTextNode("Pathogenic variants not covered");
@@ -380,6 +383,21 @@
                             th6.appendChild(texto6);
                             th7.appendChild(texto7);
                             th8.appendChild(texto8);
+
+/////////////////////////////////////
+                            var span =document.createElement("span");
+                            span.className += "glyphicon glyphicon-sort";
+
+                            var span2 =document.createElement("span");
+                            span2.className += "glyphicon glyphicon-sort";
+
+                            var span3 =document.createElement("span");
+                            span3.className += "glyphicon glyphicon-sort";
+                            
+                            th.appendChild(span);
+                            th2.appendChild(span2);
+                            th3.appendChild(span3);
+////////////////////////////////////                            
                             /////pegamos las celdas al row////
                             trKitname.appendChild(thKitname);
                             tr.appendChild(th);
@@ -418,7 +436,8 @@
                             th.setAttribute("id", "th");
                             th2.setAttribute("id", "th2");
                             th3.setAttribute("id", "th3");
-                            
+
+                           
 
                             // console.log("ID TABLA PASADO A STRING PARA LA FUNCION ORDENAR : "+idTablaString)
                             //cabecera.setAttribute("onclick", idTablaString);
