@@ -1,0 +1,143 @@
+
+tr,
+span {
+    text-align: right;
+}
+
+body {
+    overflow: auto;
+    font-family: 'Hind Madurai', sans-serif;
+    font-size: 16px;
+}
+
+p {
+    font-size: .9em;
+    text-align: justify;
+}
+
+/**tabla de datos procesados**/
+
+thead {
+    background-color: #242121;
+    color: #D4D4D4;
+}
+
+table {
+    width: 500px;
+    margin: 0 auto;
+    font-size: 0.85em;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+}
+
+th {
+    margin: 0 auto;
+}
+
+#th,
+#th2,
+#th3 {
+    cursor: pointer;
+
+}
+
+td {
+    text-align: justify;
+    max-width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 10em;
+}
+
+td:hover {
+    overflow-x: visible;
+}
+
+.kitnameRow {
+    background-color: #ff4e58;
+    color: cornsilk;
+    Padding-left: 0.5em;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+/*+++loader css++++++*/
+
+.loader {
+    border: 10px solid #181515;
+    border-radius: 50%;
+    border-top: 10px solid #ff4e58;
+    width: 50px;
+    height: 50px;
+    margin: auto;
+    z-index: auto;
+    text-align: center;
+    -webkit-animation: spin 1.5s linear infinite;
+    /* Safari */
+    animation: spin 1.5s linear infinite;
+}
+
+/* Safari */
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .table-responsive {
+        border: none;
+    }
+}
+
+/* The Modal (background) */
+
+.modal {
+    margin: auto;
+    /* display: ;*/
+    /* Hidden by default */
+    z-index: 3;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Black w/ opacity */
+}
+
+/* Modal Content */
+
+.modal-content {
+    background-color: transparent;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    width: 80%;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2
+}
