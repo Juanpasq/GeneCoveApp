@@ -131,11 +131,11 @@ function url() {
         //console.log("VALORES ORDENADOS:  " + csvValues.length)
         ///prueba para ver como sale el url para procesar////
         //console.log(csvValues+"  -- URL PRUEBA");
-        console.log("http://" + ipServer + "/getGeneStats/" + kitsSeleccionados + "/" + csvValues + "");
+        console.log("https://" + ipServer + "/getGeneStats/" + kitsSeleccionados + "/" + csvValues + "");
         //window.open("http://"+ipServer+"/genecovapp/getGeneStats/" + kitsSeleccionados + "/" + csvValues + "");                  
         //window.open("tabla.html");
         /////armamos una variable para traer el archivo json/////
-        var urlProcesada = "http://" + ipServer + "/getGeneStats/" + kitsSeleccionados + "/" + csvValues + "";
+        var urlProcesada = "https://" + ipServer + "/getGeneStats/" + kitsSeleccionados + "/" + csvValues + "";
         ///buscamos las propiedades de los genes seleccionados en la url resultado///
         $.getJSON(urlProcesada, function (genesjson) {
             /*   console.log("entro >>> " + genesjson[0]["genes"][0].symbol);
